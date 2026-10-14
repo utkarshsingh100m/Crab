@@ -17,6 +17,7 @@ import { CreatorPortfolioEditor } from './pages/CreatorPortfolioEditor';
 import { OpportunitiesPage } from './pages/OpportunitiesPage';
 import { ProfileSettingsPage } from './pages/ProfileSettingsPage';
 import { PublicCreatorsPage } from './pages/PublicCreatorsPage';
+import { MessagesPage } from './pages/MessagesPage';
 
 export function App() {
   return (
@@ -40,17 +41,18 @@ export function App() {
           <Route path="/brand/briefs" element={<BriefListPage />} />
           <Route path="/brand/briefs/new" element={<BriefFormPage />} />
           <Route path="/brand/saved" element={<SavedCreatorsPage />} />
-          <Route path="/brand/campaigns" element={<BrandDashboard />} />
+          <Route path="/brand/campaigns" element={<MessagesPage />} />
 
-          {/* Shared Campaigns */}
+          {/* Shared Campaigns & Direct Messages */}
           <Route path="/campaign/:id" element={<CampaignDetailPage />} />
+          <Route path="/messages" element={<MessagesPage />} />
 
           {/* Creator Routes */}
           <Route path="/creator/dashboard" element={<CreatorDashboard />} />
           <Route path="/creator/profile" element={<PublicCreatorsPage />} />
           <Route path="/creator/portfolio" element={<CreatorPortfolioEditor />} />
           <Route path="/creator/opportunities" element={<OpportunitiesPage />} />
-          <Route path="/creator/campaigns" element={<CreatorDashboard />} />
+          <Route path="/creator/campaigns" element={<MessagesPage />} />
         </Route>
 
         {/* Fallback */}

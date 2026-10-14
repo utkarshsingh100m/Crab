@@ -44,8 +44,56 @@ interface AppShellProps {
   children?: React.ReactNode;
 }
 
+export function resolveBreadcrumb(
+  path: string,
+  role: 'creator' | 'brand' | 'admin' | string | undefined,
+  creators: Array<{ id: string; displayName: string }>,
+  campaigns: Array<{ id: string; title: string }>
+): string {
+  // 1. Fixed subpages
+  if (path === '/brand/briefs/new') return 'Create a Brief';
+
+  const navItems = role === 'creator' ? CREATOR_NAV : BRAND_NAV;
+
+  // 2. Exact match in current role's navigation
+  const exactNav = navItems.find((n) => n.href === path);
+  if (exactNav) return exactNav.label;
+
+  // 3. Dynamic Creator Detail page (/creator/:id)
+  if (path.startsWith('/creator/')) {
+    const subPath = path.split('/')[2];
+    const reservedCreatorPaths = ['dashboard', 'profile', 'portfolio', 'opportunities', 'campaigns'];
+    if (subPath && !reservedCreatorPaths.includes(subPath)) {
+      const viewedCreator = creators.find((c) => c.id === subPath);
+      const prefix = role === 'creator' ? 'Discover Talent' : 'Find Creators';
+      return viewedCreator ? `${prefix} / ${viewedCreator.displayName}` : prefix;
+    }
+  }
+
+  // 4. Dynamic Campaign Detail page (/campaign/:id)
+  if (path.startsWith('/campaign/')) {
+    const campaignId = path.split('/')[2];
+    const camp = campaigns.find((c) => c.id === campaignId);
+    const prefix = role === 'creator' ? 'Messages' : 'Campaigns';
+    return camp ? `${prefix} / ${camp.title}` : `${prefix} / Details`;
+  }
+
+  // 5. Special Marketplace role handling
+  if (path === '/marketplace') {
+    return role === 'creator' ? 'Discover Talent' : 'Find Creators';
+  }
+
+  // 6. Prefix match for other nested routes (e.g., /brand/briefs/...)
+  const prefixNav = navItems.find(
+    (n) => n.href !== '/brand/dashboard' && n.href !== '/creator/dashboard' && path.startsWith(n.href)
+  );
+  if (prefixNav) return prefixNav.label;
+
+  return 'Home';
+}
+
 export function AppShell({ children }: AppShellProps) {
-  const { currentUser, logout, resetToSeedData, creators } = useAppStore();
+  const { currentUser, logout, resetToSeedData, creators, campaigns } = useAppStore();
   const location = useLocation();
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -55,23 +103,21 @@ export function AppShell({ children }: AppShellProps) {
   const navItems = currentUser?.role === 'creator' ? CREATOR_NAV : BRAND_NAV;
 
   const currentBreadcrumb = React.useMemo(() => {
-    if (location.pathname === '/brand/briefs/new') return 'Create a Brief';
-    if (location.pathname === '/creator/profile') return 'Discover Talent';
-    if (location.pathname === '/marketplace') return currentUser?.role === 'creator' ? 'Discover Talent' : 'Find Creators';
-    if (location.pathname.startsWith('/creator/') && !location.pathname.startsWith('/creator/dashboard')) {
-      const creatorId = location.pathname.split('/')[2];
-      const viewedCreator = creators.find((c) => c.id === creatorId);
-      return viewedCreator ? `Discover Talent / ${viewedCreator.displayName}` : 'Discover Talent';
-    }
-    const matchedNav = navItems.find((n) => location.pathname === n.href || (n.href !== '/brand/dashboard' && n.href !== '/creator/dashboard' && location.pathname.startsWith(n.href)));
-    return matchedNav?.label ?? 'Dashboard';
-  }, [location.pathname, navItems, creators, currentUser]);
+    return resolveBreadcrumb(location.pathname, currentUser?.role, creators, campaigns);
+  }, [location.pathname, currentUser?.role, creators, campaigns]);
 
   function handleLogout() {
     logout();
     navigate('/');
     setUserMenuOpen(false);
   }
+
+  const isCreatorDetailPage =
+    location.pathname.startsWith('/creator/') &&
+    !['dashboard', 'profile', 'portfolio', 'opportunities', 'campaigns'].includes(
+      location.pathname.split('/')[2]
+    );
+  const isCampaignDetailPage = location.pathname.startsWith('/campaign/');
 
   return (
     <div className="h-screen bg-[#FAF7F2] flex overflow-hidden">
@@ -98,7 +144,16 @@ export function AppShell({ children }: AppShellProps) {
           {/* Nav */}
           <nav className="p-4 space-y-1 flex-1" aria-label="Main Navigation">
             {navItems.map(({ href, label, icon: Icon }) => {
-              const isActive = location.pathname.startsWith(href);
+              const isExact = location.pathname === href;
+              const isPrefix =
+                href !== '/brand/dashboard' &&
+                href !== '/creator/dashboard' &&
+                location.pathname.startsWith(href);
+              const isLinkedDetail =
+                (isCreatorDetailPage && (href === '/creator/profile' || href === '/marketplace')) ||
+                (isCampaignDetailPage && (href === '/creator/campaigns' || href === '/brand/campaigns'));
+
+              const isActive = isExact || isPrefix || isLinkedDetail;
               return (
                 <Link
                   key={href}
@@ -188,8 +243,8 @@ export function AppShell({ children }: AppShellProps) {
       <div className="flex-1 flex flex-col min-w-0 h-full overflow-y-auto">
         {/* Top header */}
         <header className="h-16 border-b border-[#EAE4DC] bg-white/80 backdrop-blur-md px-6 flex items-center justify-between sticky top-0 z-20 shrink-0">
-          {/* Mobile logo */}
-          <div className="flex items-center gap-3 md:hidden">
+          {/* Mobile logo & breadcrumb */}
+          <div className="flex items-center gap-2.5 md:hidden">
             <button
               className="p-2 rounded-lg hover:bg-stone-100 text-[#78716C]"
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -197,10 +252,14 @@ export function AppShell({ children }: AppShellProps) {
             >
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
-            <Link to={homePath} className="flex items-center gap-2">
+            <Link to={homePath} className="flex items-center gap-2 shrink-0">
               <img src="/crab-logo.png" alt="CRAB" className="w-7 h-7 object-contain rounded" />
               <span className="font-black text-base text-[#1C1613]">CRAB</span>
             </Link>
+            <span className="text-[#9C8F86] text-xs">/</span>
+            <span className="font-semibold text-xs text-[#1C1613] truncate max-w-[120px]">
+              {currentBreadcrumb}
+            </span>
           </div>
 
           {/* Breadcrumb (desktop) */}
@@ -234,7 +293,16 @@ export function AppShell({ children }: AppShellProps) {
             <div className="absolute inset-0 bg-black/30" onClick={() => setMobileOpen(false)} />
             <nav className="absolute top-0 left-0 w-64 h-full bg-white border-r border-[#EAE4DC] p-4 space-y-1 overflow-y-auto">
               {navItems.map(({ href, label, icon: Icon }) => {
-                const isActive = location.pathname.startsWith(href);
+                const isExact = location.pathname === href;
+                const isPrefix =
+                  href !== '/brand/dashboard' &&
+                  href !== '/creator/dashboard' &&
+                  location.pathname.startsWith(href);
+                const isLinkedDetail =
+                  (isCreatorDetailPage && (href === '/creator/profile' || href === '/marketplace')) ||
+                  (isCampaignDetailPage && (href === '/creator/campaigns' || href === '/brand/campaigns'));
+
+                const isActive = isExact || isPrefix || isLinkedDetail;
                 return (
                   <Link
                     key={href}
