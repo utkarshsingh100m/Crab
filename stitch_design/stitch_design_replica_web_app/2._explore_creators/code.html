@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explore Creators - AI Talent Marketplace</title>
+<!-- Tailwind CSS CDN with Forms & Container Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration for Warm Terracotta & Editorial Palette -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#FCF8F5',
+              100: '#F8EFE9',
+              200: '#F2DFD4',
+              500: '#E05D38',
+              600: '#CA4825',
+              700: '#A9391D',
+            },
+            sand: {
+              50: '#FAF8F5',
+              100: '#F4EFEA',
+              200: '#E8DFD5',
+              300: '#D5C8B8',
+              800: '#2A2421',
+              900: '#1A1614',
+            }
+          },
+          fontFamily: {
+            serif: ['Georgia', 'Cambria', 'serif'],
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-enhancements">
+    /* Subtle scrollbar & card hover animations */
+    .creator-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .creator-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px -8px rgba(42, 36, 33, 0.08);
+    }
+  </style>
+</head>
+<body class="bg-[#FAF8F5] text-sand-900 font-sans antialiased min-h-screen flex flex-col">
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-50 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-sand-200" data-purpose="main-header">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<!-- Logo & Main Navigation -->
+<div class="flex items-center gap-8">
+<!-- Logo -->
+<a class="flex items-center gap-2.5 text-sand-900 font-bold text-lg tracking-tight" href="#">
+<span class="w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center font-serif text-xl shadow-sm">✦</span>
+<span>GenCraft</span>
+</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center space-x-7 text-sm font-medium" data-purpose="main-navigation">
+<a class="text-brand-600 font-semibold border-b-2 border-brand-500 pb-0.5 pt-0.5" href="#">Creators</a>
+<a class="text-sand-800/70 hover:text-sand-900 transition-colors" href="#">Projects</a>
+<a class="text-sand-800/70 hover:text-sand-900 transition-colors" href="#">For Brands</a>
+<a class="text-sand-800/70 hover:text-sand-900 transition-colors" href="#">How It Works</a>
+<a class="text-sand-800/70 hover:text-sand-900 transition-colors" href="#">Pricing</a>
+</nav>
+</div>
+<!-- Right Header Actions -->
+<div class="flex items-center gap-4">
+<button aria-label="Search" class="p-2 text-sand-800/70 hover:text-sand-900 rounded-full hover:bg-sand-100 transition-colors" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<a class="text-sm font-medium text-sand-800 hover:text-sand-900 px-3 py-1.5 transition-colors" href="#">Log In</a>
+<a class="text-sm font-medium bg-brand-500 hover:bg-brand-600 text-white px-4 py-2 rounded-full transition-all shadow-sm" href="#">
+          Join Now →
+        </a>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: SearchHeroBar -->
+<section class="py-6 border-b border-sand-200/80 bg-[#FAF8F5]" data-purpose="search-header">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Centered Search Box -->
+<div class="max-w-2xl mx-auto flex items-center gap-3">
+<div class="relative flex-1">
+<span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-sand-800/40">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-full border border-sand-200 bg-white/80 focus:bg-white text-sm text-sand-900 placeholder-sand-800/50 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 shadow-sm" placeholder="Search creators, tools, styles..." type="text"/>
+</div>
+<button aria-label="Filter Preferences" class="p-2.5 rounded-full border border-sand-200 bg-white hover:bg-sand-50 text-sand-800 transition-colors shadow-sm" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</section>
+<!-- END: SearchHeroBar -->
+<!-- BEGIN: MainContentArea -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-1">
+<div class="flex flex-col lg:flex-row gap-8 items-start">
+<!-- BEGIN: LeftSidebarFilter -->
+<aside class="w-full lg:w-64 shrink-0 bg-transparent space-y-6" data-purpose="sidebar-filters">
+<!-- Filters Header -->
+<div class="flex items-center justify-between pb-3 border-b border-sand-200">
+<h2 class="text-sm font-bold tracking-wide text-sand-900 uppercase">Filters</h2>
+<button class="text-xs text-brand-600 hover:text-brand-700 font-medium" type="button">Clear All</button>
+</div>
+<!-- Filter Group: Specialization -->
+<div class="space-y-3">
+<h3 class="text-xs font-semibold text-sand-900 uppercase tracking-wider">Specialization</h3>
+<div class="space-y-2 text-xs text-sand-800/80">
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input checked="" class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">AI Filmmaker</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(234)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">AI Animator</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(189)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">Generative Artist</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(112)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">AI Fashion</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(97)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">3D Artist</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(84)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">Product Visuals</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(121)</span>
+</label>
+</div>
+</div>
+<!-- Filter Group: Tools -->
+<div class="space-y-3 pt-4 border-t border-sand-200">
+<h3 class="text-xs font-semibold text-sand-900 uppercase tracking-wider">Tools</h3>
+<div class="space-y-2 text-xs text-sand-800/80">
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">Midjourney</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(421)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">Runway</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(372)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">Stable Diffusion</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(298)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">DALL-E</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(276)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">ComfyUI</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(256)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">Blender</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(198)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">Kling</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(178)</span>
+</label>
+<button class="text-brand-600 hover:text-brand-700 font-medium pt-1 text-[11px] block" type="button">+ Show more</button>
+</div>
+</div>
+<!-- Filter Group: Content Type -->
+<div class="space-y-3 pt-4 border-t border-sand-200">
+<h3 class="text-xs font-semibold text-sand-900 uppercase tracking-wider">Content Type</h3>
+<div class="space-y-2 text-xs text-sand-800/80">
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">Video</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(288)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">Image</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(412)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">Animation</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(176)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">3D</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(120)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">Brand Campaigns</span>
+</span>
+<span class="text-sand-800/40 text-[11px]">(156)</span>
+</label>
+</div>
+</div>
+<!-- Filter Group: Style -->
+<div class="space-y-3 pt-4 border-t border-sand-200">
+<h3 class="text-xs font-semibold text-sand-900 uppercase tracking-wider">Style</h3>
+<div class="space-y-2 text-xs text-sand-800/80">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">Cinematic</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">Realistic</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">Surreal</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">Minimal</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-sand-300 text-brand-500 focus:ring-brand-500 w-3.5 h-3.5" type="checkbox"/>
+<span class="group-hover:text-sand-900">Editorial</span>
+</label>
+</div>
+</div>
+</aside>
+<!-- END: LeftSidebarFilter -->
+<!-- BEGIN: ResultsMainArea -->
+<section class="flex-1 w-full" data-purpose="creator-grid-results">
+<!-- Results Top Meta Bar -->
+<div class="flex items-center justify-between mb-5">
+<p class="text-sm font-semibold text-sand-900">423 creators found</p>
+<div class="flex items-center gap-2 text-xs text-sand-800">
+<span>Sort by:</span>
+<select class="text-xs font-medium border-sand-200 bg-white rounded-md py-1 px-2.5 focus:border-brand-500 focus:ring-brand-500 text-sand-900">
+<option>Relevance</option>
+<option>Rating (High to Low)</option>
+<option>Reviews Count</option>
+<option>Newest</option>
+</select>
+</div>
+</div>
+<!-- 3x3 Creators Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+<!-- Creator Card 1: Maya Chen -->
+<article class="creator-card bg-white rounded-xl border border-sand-200/90 overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.03)] flex flex-col justify-between" data-purpose="creator-card">
+<div>
+<div class="relative h-44 overflow-hidden bg-sand-200">
+<img alt="Maya Chen's showcase work" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkFeRPbTX-bl0-3YIll_zFo76KZqjLZFDpovCK_UYCAVS_IJ5rXFpcWXufVjfrePgUug48CVK9D_2wnPjHGAje4tfjFYzLA4w-zZKLWA0b7GxZgaSTC5LQUt_xGwuNt3N_s1YhoKZ6BKjMTCMnhWBGl-LW0SXIDKSoBhov2uGg99lSSYcVEtJtvDkz7kLPW9jFgR50KeEOS1bs8LsMAGqnuxAMLj6rSK8ikDYUrhAdzOnWULtjjR4nwA"/>
+<button aria-label="Favorite creator" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-sand-900/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-sand-900/60 transition-colors" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<div class="p-3.5">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-sand-900 text-sm hover:text-brand-600 cursor-pointer">Maya Chen</h4>
+<div class="flex items-center text-xs font-semibold text-sand-800">
+<span class="text-amber-500 mr-1">★</span> 4.9 <span class="text-sand-800/40 font-normal ml-0.5">(128)</span>
+</div>
+</div>
+<p class="text-xs text-sand-800/70 mt-0.5">Generative Artist</p>
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">Midjourney</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">ComfyUI</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Creator Card 2: Arjun Malhotra -->
+<article class="creator-card bg-white rounded-xl border border-sand-200/90 overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.03)] flex flex-col justify-between" data-purpose="creator-card">
+<div>
+<div class="relative h-44 overflow-hidden bg-sand-200">
+<img alt="Arjun Malhotra's showcase work" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkQTVmOdpDYH68Aign_d_gIpz_JEjCDtLD23WNltdoi61ADCGJTqeHGAZth0lCJAtx8_ZgmDp6OE5nROvxRDv_UXyZPeEnfILxd01Sk2aqIpu1Cd3EAH7SvuXK2tyWaz1wujz9e6yriwKUqtLS-Xsp7bOenj6MIp-5d57kdaU-m0W1sqS368FdT_1YDUHkfTqv5aPlbdSySozM2hmyCjU4SboL9W16LOc9qqiQclQvkEtZMhCt9EeyxQ"/>
+<button aria-label="Favorite creator" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-sand-900/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-sand-900/60 transition-colors" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<div class="p-3.5">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-sand-900 text-sm hover:text-brand-600 cursor-pointer">Arjun Malhotra</h4>
+<div class="flex items-center text-xs font-semibold text-sand-800">
+<span class="text-amber-500 mr-1">★</span> 4.8 <span class="text-sand-800/40 font-normal ml-0.5">(92)</span>
+</div>
+</div>
+<p class="text-xs text-sand-800/70 mt-0.5">AI Filmmaker</p>
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">Runway</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">Kling</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Creator Card 3: Sofia Rivera -->
+<article class="creator-card bg-white rounded-xl border border-sand-200/90 overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.03)] flex flex-col justify-between" data-purpose="creator-card">
+<div>
+<div class="relative h-44 overflow-hidden bg-sand-200">
+<img alt="Sofia Rivera's showcase work" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUXy5oAHZ4rgkfG2P6qeutHJybyrnhiYLkzkYbkCl3uWSfqb8DEyKTBdGiINqE7wvePclMlIeO1qaPJXnBYbWhQimfQbJywd9EJjYJDds7QPdM6Fd31TvZu3vkQKCZVi7U4r3H_-7xictC-rO33RF5dQ3rDM9tTUmOlnquQD1qG-lsUysK0Dgo20Ww5gTNpE7okgJ-cJkmCW_lFJ3SZNUYPcVztubyIfKv3oVv22AWIdYyDn7NFXW1yA"/>
+<button aria-label="Favorite creator" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-sand-900/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-sand-900/60 transition-colors" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<div class="p-3.5">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-sand-900 text-sm hover:text-brand-600 cursor-pointer">Sofia Rivera</h4>
+<div class="flex items-center text-xs font-semibold text-sand-800">
+<span class="text-amber-500 mr-1">★</span> 4.8 <span class="text-sand-800/40 font-normal ml-0.5">(76)</span>
+</div>
+</div>
+<p class="text-xs text-sand-800/70 mt-0.5">AI Fashion Designer</p>
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">DALL-E</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">Stable Diffusion</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Creator Card 4: Daniel Park -->
+<article class="creator-card bg-white rounded-xl border border-sand-200/90 overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.03)] flex flex-col justify-between" data-purpose="creator-card">
+<div>
+<div class="relative h-44 overflow-hidden bg-sand-200">
+<img alt="Daniel Park's showcase work" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUQEwzRVzMB_r79OHlPCGI4F623PABUzbiGLZQZrGSNoVgglxELkYYKatSLUS3srklxrg1TZng8mFLgzGGvylrEwRPkhb16Zb5klYN0qcIJFscuOrPl_U3x9VPWlVEOahGDYevhR5fp_o9klX3sRVyXBr0IQP4vPijNqf8EmxtvqPh54icgKk88M-oMVNXBYiyl-cVfjMX7lb1hdB2u9xFaOsgdGi-ixhSC1idNDxm60yGRBkW1QOXVw"/>
+<button aria-label="Favorite creator" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-sand-900/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-sand-900/60 transition-colors" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<div class="p-3.5">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-sand-900 text-sm hover:text-brand-600 cursor-pointer">Daniel Park</h4>
+<div class="flex items-center text-xs font-semibold text-sand-800">
+<span class="text-amber-500 mr-1">★</span> 4.7 <span class="text-sand-800/40 font-normal ml-0.5">(84)</span>
+</div>
+</div>
+<p class="text-xs text-sand-800/70 mt-0.5">3D Artist</p>
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">Blender</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">Unreal Engine</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Creator Card 5: Priya Shah -->
+<article class="creator-card bg-white rounded-xl border border-sand-200/90 overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.03)] flex flex-col justify-between" data-purpose="creator-card">
+<div>
+<div class="relative h-44 overflow-hidden bg-sand-200">
+<img alt="Priya Shah's showcase work" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk00IGINpQX_5NQPMVOQO55iGaEnIyvWIq_ngH2JjgE-_G1d-TFUSImp2jZO4K7LpVK07coCFIp6qRyuHH-5cW658_8xZGbH73uPC3PR46_5iLtLGxOXmcrdhacKdi8k7o81QiS8_sD4asc8RHMxAP_TTOyD-RFQ2mytywL1YlNv_sZAy03Q1fEZuGWKYkTut7y7DDFH962EEZKE-Kp33bWH-Q44_Wor0Y5s6K6fN_BbSD4TWwGQMZEw"/>
+<button aria-label="Favorite creator" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-sand-900/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-sand-900/60 transition-colors" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<div class="p-3.5">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-sand-900 text-sm hover:text-brand-600 cursor-pointer">Priya Shah</h4>
+<div class="flex items-center text-xs font-semibold text-sand-800">
+<span class="text-amber-500 mr-1">★</span> 4.7 <span class="text-sand-800/40 font-normal ml-0.5">(91)</span>
+</div>
+</div>
+<p class="text-xs text-sand-800/70 mt-0.5">Visual Designer</p>
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">Photoshop</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">Midjourney</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Creator Card 6: Ethan Kim -->
+<article class="creator-card bg-white rounded-xl border border-sand-200/90 overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.03)] flex flex-col justify-between" data-purpose="creator-card">
+<div>
+<div class="relative h-44 overflow-hidden bg-sand-200">
+<img alt="Ethan Kim's showcase work" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpTb55Dhq5fIa04sGhJDtaPs7HvxPU4Grwd5clDX8ctlAVcz9pFmYKf2YpUJ_BXouqEU2R_qmAJ__zBMz1_omeiM6Sp0B8f9BXAf7TsC1xbxmu6xJuS-hDuhWZUUJT5fcPobZYPJUOwXWn-HKB4mdTx-5I1RFzGb7jZ73Ui1Ll2G65Mx598Z-aC259VhXHhT-0_brS0-76b9VN4MhCtmrD_4dWeeCMmwZVppmESb-jPMt1CAnjEaoxdA"/>
+<button aria-label="Favorite creator" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-sand-900/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-sand-900/60 transition-colors" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<div class="p-3.5">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-sand-900 text-sm hover:text-brand-600 cursor-pointer">Ethan Kim</h4>
+<div class="flex items-center text-xs font-semibold text-sand-800">
+<span class="text-amber-500 mr-1">★</span> 4.6 <span class="text-sand-800/40 font-normal ml-0.5">(34)</span>
+</div>
+</div>
+<p class="text-xs text-sand-800/70 mt-0.5">AI Filmmaker</p>
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">Runway</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">Kling</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Creator Card 7: Luca Moretti -->
+<article class="creator-card bg-white rounded-xl border border-sand-200/90 overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.03)] flex flex-col justify-between" data-purpose="creator-card">
+<div>
+<div class="relative h-44 overflow-hidden bg-sand-200">
+<img alt="Luca Moretti's showcase work" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqFfglS_5nllrLMJ1wOX2ACR-JgFRPRP1zXw1IcvQq1j0RqFDZVT-vplePrY5UkkpA04-tW_ZeG8XaPpFcAv0ExT4KnOKacsTd2kYoaIxQ_wO7s_P27Gnf1zhFGH8Dl47mfRtWwVbZKexwYz7yWyOf066Pi5FwG7B1xNaYNCtO_DqRquTiAbyPZDUAKlH88WpSfA7H2AAHOxEpM-bDjpWoL_IA1m0dYiXi_SmSQsT49S3DxV-ag5h7Fg"/>
+<button aria-label="Favorite creator" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-sand-900/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-sand-900/60 transition-colors" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<div class="p-3.5">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-sand-900 text-sm hover:text-brand-600 cursor-pointer">Luca Moretti</h4>
+<div class="flex items-center text-xs font-semibold text-sand-800">
+<span class="text-amber-500 mr-1">★</span> 4.6 <span class="text-sand-800/40 font-normal ml-0.5">(53)</span>
+</div>
+</div>
+<p class="text-xs text-sand-800/70 mt-0.5">3D Animator</p>
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">Stable Diffusion</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">ComfyUI</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Creator Card 8: Yuki Tanaka -->
+<article class="creator-card bg-white rounded-xl border border-sand-200/90 overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.03)] flex flex-col justify-between" data-purpose="creator-card">
+<div>
+<div class="relative h-44 overflow-hidden bg-sand-200">
+<img alt="Yuki Tanaka's showcase work" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlTHrsUjIoC6Q1ouWYTJX8uRxKXOyjXJ9wvRHe5PacTdGeiD5jawwyoR9cv01fEhax3VYYc8p-IzGpGbxxIari6Ugx_CBhhySMlbgzT5PxApGBlDOPBawqNbvQ45KaJcRT8rGZHFusRKOAAC7jgRBlk_FGYTfWIHJKYuMoktPJz6TElixHFIJvjdzn6vLD-E1i5E53VekUr60rYm_H5HY3RnrJ91EBA1IJyLOr49lhsi96XbWLPWVZMQ"/>
+<button aria-label="Favorite creator" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-sand-900/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-sand-900/60 transition-colors" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<div class="p-3.5">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-sand-900 text-sm hover:text-brand-600 cursor-pointer">Yuki Tanaka</h4>
+<div class="flex items-center text-xs font-semibold text-sand-800">
+<span class="text-amber-500 mr-1">★</span> 4.9 <span class="text-sand-800/40 font-normal ml-0.5">(104)</span>
+</div>
+</div>
+<p class="text-xs text-sand-800/70 mt-0.5">AI Animator</p>
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">Kling</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">After Effects</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Creator Card 9: Marcus Lee -->
+<article class="creator-card bg-white rounded-xl border border-sand-200/90 overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.03)] flex flex-col justify-between" data-purpose="creator-card">
+<div>
+<div class="relative h-44 overflow-hidden bg-sand-200">
+<img alt="Marcus Lee's showcase work" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOEZwkHZFzPkTYL7HwGBJrmftJRRKBm5pwMCGE0-4MbQTmNcbVEcOuGeAmmzYiM3ka0vkpSprzGRBC8s157nXLksxKxezWoxVK898umYG6lerMALqCJsaxReJMMbh8fErTIQvhs6Z-xkT3buU8SWizX-IpLFAF102cyUiTIBv5vGFMyLyBQt7Yn8yBXVNv9O_IiqWjqNyR8P7pBoxaXLgnxuCF10Z7Ix0wwz6MEnQGZYbs9yogXv0e6g"/>
+<button aria-label="Favorite creator" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-sand-900/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-sand-900/60 transition-colors" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<div class="p-3.5">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-sand-900 text-sm hover:text-brand-600 cursor-pointer">Marcus Lee</h4>
+<div class="flex items-center text-xs font-semibold text-sand-800">
+<span class="text-amber-500 mr-1">★</span> 4.8 <span class="text-sand-800/40 font-normal ml-0.5">(81)</span>
+</div>
+</div>
+<p class="text-xs text-sand-800/70 mt-0.5">AI Filmmaker</p>
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">Unreal Engine</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-sand-100 text-sand-800 border border-sand-200">Blender</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- End Grid -->
+<!-- BEGIN: Pagination -->
+<nav aria-label="Pagination" class="flex items-center justify-center gap-1.5 mt-10 pt-6 border-t border-sand-200 text-xs font-medium">
+<button class="px-2.5 py-1.5 rounded-md hover:bg-sand-100 text-sand-800/60 hover:text-sand-900 transition-colors" type="button">
+            &lt;
+          </button>
+<button class="w-7 h-7 rounded-full bg-brand-500 text-white font-semibold flex items-center justify-center shadow-sm" type="button">
+            1
+          </button>
+<button class="w-7 h-7 rounded-full hover:bg-sand-100 text-sand-800 flex items-center justify-center transition-colors" type="button">
+            2
+          </button>
+<button class="w-7 h-7 rounded-full hover:bg-sand-100 text-sand-800 flex items-center justify-center transition-colors" type="button">
+            3
+          </button>
+<button class="w-7 h-7 rounded-full hover:bg-sand-100 text-sand-800 flex items-center justify-center transition-colors" type="button">
+            4
+          </button>
+<button class="w-7 h-7 rounded-full hover:bg-sand-100 text-sand-800 flex items-center justify-center transition-colors" type="button">
+            5
+          </button>
+<span class="px-1 text-sand-800/40">...</span>
+<button class="px-2.5 py-1.5 rounded-md hover:bg-sand-100 text-sand-800/60 hover:text-sand-900 transition-colors" type="button">
+            &gt;
+          </button>
+</nav>
+<!-- END: Pagination -->
+</section>
+<!-- END: ResultsMainArea -->
+</div>
+</main>
+<!-- END: MainContentArea -->
+</body></html>

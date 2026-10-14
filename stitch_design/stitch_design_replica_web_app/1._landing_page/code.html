@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Creators Marketplace | Create without limits</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Instrument Serif & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#FAF7F2',
+              sand: '#F3EDE4',
+              surface: '#FFFFFF',
+              border: '#E8DFD3',
+              dark: '#1C1613',
+              muted: '#71655F',
+              accent: '#E65D2E', // Terracotta orange
+              'accent-hover': '#CE4B1E',
+              'accent-soft': '#FBECE5',
+              glow: '#FFE8DC'
+            }
+          },
+          fontFamily: {
+            serif: ['"Instrument Serif"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-typography-and-effects">
+    body {
+      background-color: #FAF7F2;
+      color: #1C1613;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-serif-display {
+      font-family: 'Instrument Serif', Georgia, serif;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+    .hero-glow {
+      background: radial-gradient(circle at 65% 45%, #FDE4D8 0%, #FAF7F2 70%);
+    }
+    .footer-glow {
+      background: radial-gradient(circle at 50% 120%, #F8DACD 0%, #FAF7F2 80%);
+    }
+  </style>
+</head>
+<body class="min-h-screen text-brand-dark antialiased selection:bg-brand-accent selection:text-white">
+<!-- BEGIN: Navigation -->
+<header class="sticky top-0 z-50 bg-[#FAF7F2]/90 backdrop-blur-md border-b border-brand-border/60 transition-all duration-300">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-2.5 group" href="#">
+<div class="w-8 h-8 rounded-full bg-brand-accent flex items-center justify-center text-white shadow-sm transition-transform group-hover:rotate-45 duration-300">
+<i class="w-4 h-4 fill-white" data-lucide="sparkle"></i>
+</div>
+<span class="font-bold text-xl tracking-tight text-brand-dark font-sans">Curators<span class="text-brand-accent">.</span></span>
+</a>
+<!-- Primary Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-muted">
+<a class="text-brand-dark transition-colors hover:text-brand-accent" href="#creators">Creators</a>
+<a class="transition-colors hover:text-brand-accent" href="#projects">Projects</a>
+<a class="transition-colors hover:text-brand-accent" href="#brands">For Brands</a>
+<a class="transition-colors hover:text-brand-accent" href="#how-it-works">How It Works</a>
+<a class="transition-colors hover:text-brand-accent" href="#pricing">Pricing</a>
+</nav>
+<!-- Right Navigation Actions -->
+<div class="flex items-center gap-5">
+<button aria-label="Search" class="p-2 text-brand-muted hover:text-brand-dark transition-colors">
+<i class="w-4 h-4" data-lucide="search"></i>
+</button>
+<a class="text-sm font-medium text-brand-dark hover:text-brand-accent transition-colors" href="#login">Log In</a>
+<a class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-brand-accent text-white text-sm font-medium hover:bg-brand-accent-hover transition shadow-sm hover:shadow" href="#join">
+<span>Join Now</span>
+<i class="w-3.5 h-3.5" data-lucide="arrow-right"></i>
+</a>
+</div>
+</div>
+</header>
+<!-- END: Navigation -->
+<main>
+<!-- BEGIN: HeroSection -->
+<section class="relative hero-glow pt-10 pb-20 md:py-24 overflow-hidden border-b border-brand-border/40">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+<!-- Hero Left Column: Copy & CTAs -->
+<div class="lg:col-span-7 flex flex-col items-start z-10">
+<!-- Badge -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent-soft/70 border border-brand-accent/20 mb-6">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+<span class="text-[11px] font-bold uppercase tracking-wider text-brand-accent">Creative Ideas. Real Impact.</span>
+</div>
+<!-- Headline -->
+<h1 class="text-5xl sm:text-6xl md:text-7xl font-serif-display leading-[1.05] tracking-tight text-brand-dark mb-6">
+              Create without limits <br/>
+<span class="italic font-normal">with</span> <span class="text-brand-accent underline decoration-brand-accent/30 decoration-wavy underline-offset-8">AI creators.</span>
+</h1>
+<!-- Subheading -->
+<p class="text-lg md:text-xl text-brand-muted leading-relaxed max-w-xl mb-10">
+              Discover talented AI filmmakers, artists and designers. Collaborate on unique visual content for your next campaign, product or narrative story.
+            </p>
+<!-- Buttons -->
+<div class="flex flex-wrap items-center gap-4 mb-16">
+<a class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-accent text-white font-medium hover:bg-brand-accent-hover transition shadow-md hover:shadow-lg hover:-translate-y-0.5 transform duration-200" href="#creators">
+<span>Explore Creators</span>
+<i class="w-4 h-4" data-lucide="arrow-right"></i>
+</a>
+<a class="inline-flex items-center px-7 py-3.5 rounded-full bg-transparent text-brand-dark font-medium border border-brand-border hover:bg-white transition duration-200" href="#post-project">
+                Post a Project
+              </a>
+</div>
+<!-- Metrics / Social Proof -->
+<div class="grid grid-cols-3 gap-6 sm:gap-12 pt-8 border-t border-brand-border/60 w-full max-w-lg">
+<div>
+<div class="text-2xl sm:text-3xl font-bold text-brand-dark font-sans tracking-tight">10K+</div>
+<div class="text-xs sm:text-sm text-brand-muted mt-1">AI Creators</div>
+</div>
+<div>
+<div class="text-2xl sm:text-3xl font-bold text-brand-dark font-sans tracking-tight">2K+</div>
+<div class="text-xs sm:text-sm text-brand-muted mt-1">Brands &amp; Agencies</div>
+</div>
+<div>
+<div class="text-2xl sm:text-3xl font-bold text-brand-dark font-sans tracking-tight">50K+</div>
+<div class="text-xs sm:text-sm text-brand-muted mt-1">Creative Projects</div>
+</div>
+</div>
+</div>
+<!-- Hero Right Column: Dynamic Visual & Featured Floating Badge -->
+<div class="lg:col-span-5 relative flex justify-center lg:justify-end">
+<div class="relative w-full max-w-md lg:max-w-none">
+<!-- Backdrop soft light sphere -->
+<div class="absolute -top-12 -right-12 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl -z-10"></div>
+<!-- Main AI Visual Artwork Frame -->
+<div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] bg-brand-sand">
+<img alt="Ethereal Motion by Luna Kai - AI Art Showcase" class="w-full h-full object-cover object-center scale-105 hover:scale-100 transition duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_XNDz46Se9j-lcUFS4qU2CDs3UWM1jWls8AmFXHEt9i03AhZFILVe4uCmTdAWNl4uEd8516KxWjsEfNiFBHLa4yQAZMi5h3eWY0EuiT_47YEd8baO7Vv_RGmdmH7KuqpEEaxEwtZCWHDlwORGaNw9qGRTseKu76AM5miupg1rhZcpG0j4bGJVfJm2DrMXvaWRpEU3Cyk_VegZURmXhH_1414pB86R2ATTYDUEAkEEJlSBcPwCnZb1Dg"/>
+<!-- Floating Featured Work Badge -->
+<div class="absolute bottom-6 left-6 right-6 glass-card p-4 rounded-2xl shadow-lg border border-white/80 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 relative border border-white/50">
+<img alt="Mini thumbnail" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlKOCIJNRImOJJbk2fj__tBxLbWjk7Fqw-9bOccqrlauzb9_DLrZgtVx-gH9t_oAtnzJ5oHmpivBYFFN6IUv3po0LzxPjDczZuIN8EfLOQ_bBISYPrlo-8Nh6bX2WA5k9Y252Wa8V4uB6ye5uqYPoSToMOm6aNJxasNqr3H2gu0DR55Gf7PsPQKzNfAPLBaJDWmt5i8Eet1b2twuNi7TxTuPZaWtR8l2uWRV47P4Pt5FXN4DrKH-e_MQ"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+<i class="w-4 h-4 text-white fill-white" data-lucide="play"></i>
+</div>
+</div>
+<div>
+<div class="text-[10px] uppercase font-bold tracking-wider text-brand-accent">Featured Work</div>
+<div class="text-sm font-semibold text-brand-dark">Ethereal Motion</div>
+<div class="text-xs text-brand-muted">by Luna Kai</div>
+</div>
+</div>
+<button aria-label="Play sample" class="w-9 h-9 rounded-full bg-brand-accent text-white flex items-center justify-center hover:bg-brand-accent-hover transition shadow">
+<i class="w-4 h-4" data-lucide="arrow-up-right"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: CategoriesSection -->
+<section class="py-20 bg-[#FAF7F2]" id="categories">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Section Title & Subheading -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div>
+<div class="text-[11px] font-bold tracking-widest text-brand-accent uppercase mb-2">Explore By Category</div>
+<h2 class="text-3xl sm:text-4xl font-serif-display font-medium text-brand-dark">Find the perfect creative talent.</h2>
+</div>
+<a class="inline-flex items-center gap-1.5 text-sm font-medium text-brand-muted hover:text-brand-dark transition mt-4 md:mt-0" href="#all-categories">
+<span>View All</span>
+<i class="w-4 h-4" data-lucide="arrow-right"></i>
+</a>
+</div>
+<!-- Categories Grid (6 Cards) -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+<!-- Card 1: AI Films -->
+<a class="group relative bg-brand-surface rounded-2xl overflow-hidden p-3 border border-brand-border/70 hover:border-brand-accent/40 hover:shadow-md transition duration-300" href="#category-films">
+<div class="aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-brand-sand">
+<img alt="AI Films" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsD5CY_unC0yJspqRCEPz82Bl5wNkkRsfcjzRWwUmJfjNxyUIeTpP6N0ImM7JwG6_s16iBpQ5AbBVy1esDoyqGa3olqsEXLNpECSbXtdOW6yzuZPdc06YZcDk4A96g8pwpYAL8zbyGZ2Z0K6LoIoi0aRafEjYuh9vZ8RfnVOLa9IRZ_LBtb3d9uUGiUlarRTFdEC3JNp8SC202IFZRsnMKPu23dN3OoMe4TcpVr5fYhJ0Bnu_nZFdOrg"/>
+</div>
+<h3 class="font-bold text-sm text-brand-dark group-hover:text-brand-accent transition-colors">AI Films</h3>
+<p class="text-[11px] text-brand-muted truncate">Cinematic storytelling</p>
+</a>
+<!-- Card 2: Generative Art -->
+<a class="group relative bg-brand-surface rounded-2xl overflow-hidden p-3 border border-brand-border/70 hover:border-brand-accent/40 hover:shadow-md transition duration-300" href="#category-art">
+<div class="aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-brand-sand">
+<img alt="Generative Art" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvLw6FLTu5XOurdb54WjymQsPKVJXfvXzHQb5gcz6qRrvfiMHClgTGKdHYVRKi4CRVhVBrhUXl-TIydcd8jgx2mdCy4bZR0dcvTRUin-H6-WBgbj7Mrbk5q7z1UFQhDQPsWiVjVvY-xSTbHiUyCpwHZ8tukk7Y7kGZwQp1wPqixP29LfiFUt1YiHPWucXyyS_0L_QrG6-KPqcjzy28WaREQ_jJ-zUBpsbuNmlB5III3yPEj_mR78ectQ"/>
+</div>
+<h3 class="font-bold text-sm text-brand-dark group-hover:text-brand-accent transition-colors">Generative Art</h3>
+<p class="text-[11px] text-brand-muted truncate">Visual exploration</p>
+</a>
+<!-- Card 3: AI Fashion -->
+<a class="group relative bg-brand-surface rounded-2xl overflow-hidden p-3 border border-brand-border/70 hover:border-brand-accent/40 hover:shadow-md transition duration-300" href="#category-fashion">
+<div class="aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-brand-sand">
+<img alt="AI Fashion" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKLoJ5XQOYwedTWJMfptS-oGEasUwoYIbRZD4M8x1POdBojlvcLlxrPAatWnfxypdS7t2kngM5dB1axgIr6RL1Qgab-3hbd9acrlQZgFg40ETmpwOw0Ht5tcAaCTXHYGDdbCEabFz-zQKCne5DU6bx96TXjphOviWGiu92Lsr5WJkS6Gbz4aqyiSxchGK5hYdrHjywkZfMOaHMjLTZQ-9eJyLyn9DRAY-d1Dsp-xUcMNi-bMz7MgsOJg"/>
+</div>
+<h3 class="font-bold text-sm text-brand-dark group-hover:text-brand-accent transition-colors">AI Fashion</h3>
+<p class="text-[11px] text-brand-muted truncate">Style &amp; campaigns</p>
+</a>
+<!-- Card 4: Product Visuals -->
+<a class="group relative bg-brand-surface rounded-2xl overflow-hidden p-3 border border-brand-border/70 hover:border-brand-accent/40 hover:shadow-md transition duration-300" href="#category-products">
+<div class="aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-brand-sand">
+<img alt="Product Visuals" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC00CXelLiBos9qAolnN31joB33aq_FiDnGBzmCXLlIbta4gfVFkiY3WI0SDP_ajX30APnTBkQZJ-dPw7dwpXkE6SgYpR56c2kkuVUMzoko27tB_fB4HVMq06k0q2cUK9SKpmRcTX6SgFJ_9mmejeARB2fsgp8WtPTZcjqJyLWHsLI6gzwQK6M5ph460POL92sjR-oNpUpHKPwtp6Byr7SjyZyBRiWK3wj3Xi66T_Gy7KeneBaUkNypyw"/>
+</div>
+<h3 class="font-bold text-sm text-brand-dark group-hover:text-brand-accent transition-colors">Product Visuals</h3>
+<p class="text-[11px] text-brand-muted truncate">Brand &amp; advertising</p>
+</a>
+<!-- Card 5: 3D Environments -->
+<a class="group relative bg-brand-surface rounded-2xl overflow-hidden p-3 border border-brand-border/70 hover:border-brand-accent/40 hover:shadow-md transition duration-300" href="#category-3d">
+<div class="aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-brand-sand">
+<img alt="3D Environments" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL2HZCWBZMeoaN2KiivipMXt7AEciJDWEf2scqO3Z6T755Felz4kRjeDpYoQbaq7KVfFyYGEv2Q1zoh6AbvBQWVfqUOKShKiN0I84sxBvuEgSLojCrttXutKfYM1N3qLn_nWarOLOI3a_JBlF5kXpEVkq41NDfXLkdahjEY1uTQWbBI9UsUxSspI4nAfirueFG24QV_wjlXr99IqNlI8lqhBpzhZYtRGYNfGoppPpqXsk2ZgSnIVRDDw"/>
+</div>
+<h3 class="font-bold text-sm text-brand-dark group-hover:text-brand-accent transition-colors">3D Environments</h3>
+<p class="text-[11px] text-brand-muted truncate">World building</p>
+</a>
+<!-- Card 6: AI Animation -->
+<a class="group relative bg-brand-surface rounded-2xl overflow-hidden p-3 border border-brand-border/70 hover:border-brand-accent/40 hover:shadow-md transition duration-300" href="#category-animation">
+<div class="aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-brand-sand">
+<img alt="AI Animation" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6G3JCFxlBcyYx8wws5EDwW6ISfG0Hug6sXX1Xa7qGnT4iEE_tF-bqeu0yELUopDoNH5r1wZSgaTtEZl8WHcL2lCVqdt-qgcxoMwcSZzrfM_b_owGbw7cfpWIPNOhrahbVVMXW4OC35Eb23LMnULvN7nHOxk8ohlO4X8HHHbDq56oRAYPf6ZOTggWpm8GnLA7sJavG0OS3qrBhnab-tgSljlqonhdRTDzNaOT7dxvK3mn-IbdehUgg8Q"/>
+</div>
+<h3 class="font-bold text-sm text-brand-dark group-hover:text-brand-accent transition-colors">AI Animation</h3>
+<p class="text-[11px] text-brand-muted truncate">Motion &amp; characters</p>
+</a>
+</div>
+</div>
+</section>
+<!-- END: CategoriesSection -->
+<!-- BEGIN: FeaturedCreatorsSection -->
+<section class="py-20 bg-brand-sand/40 border-y border-brand-border/60" id="creators">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div>
+<div class="text-[11px] font-bold tracking-widest text-brand-accent uppercase mb-2">Featured Creators</div>
+<h2 class="text-3xl sm:text-4xl font-serif-display font-medium text-brand-dark">Meet exceptional AI creators.</h2>
+</div>
+<a class="inline-flex items-center gap-1.5 text-sm font-medium text-brand-muted hover:text-brand-dark transition mt-4 md:mt-0" href="#all-creators">
+<span>View All</span>
+<i class="w-4 h-4" data-lucide="arrow-right"></i>
+</a>
+</div>
+<!-- Creators Grid (4 Columns) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Creator Card 1: Arjun Malhotra -->
+<div class="bg-white rounded-2xl p-4 border border-brand-border/70 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
+<div>
+<div class="relative aspect-square rounded-xl overflow-hidden mb-4 bg-brand-sand">
+<img alt="Arjun Malhotra" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuuGAlaUsbVQ9nrxVh9wxKbEmcTHD3PLjmuvGy81oVqOk2r9i0CpbG3CloV9VtyXmYprp7WekFI-nKa6td47kcVCBNE5p2IpabbmePJ9uluR5PeJYGCJw1sf9p0ztZGoE6_T4HL0DSozbCtV_Vkq7cSFYfzcPMxCPpd5mTZ3CQZh3Mo9TqORxXSfqNN5a0ZXdw3kdFvuv8ydIP5WphvVHZTw9B1LRMO633y4LfKAeEdhXSk8FfXy3B-w"/>
+<button aria-label="Favorite" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-brand-dark hover:text-brand-accent transition">
+<i class="w-4 h-4" data-lucide="heart"></i>
+</button>
+</div>
+<div class="flex items-center justify-between mb-1">
+<h3 class="font-bold text-base text-brand-dark">Arjun Malhotra</h3>
+<div class="flex items-center gap-1 text-xs font-semibold text-brand-dark">
+<i class="w-3.5 h-3.5 text-amber-500 fill-amber-500" data-lucide="star"></i>
+<span>4.8</span>
+<span class="text-brand-muted font-normal">(92)</span>
+</div>
+</div>
+<p class="text-xs text-brand-muted mb-4">AI Filmmaker</p>
+</div>
+<!-- Tool Tags -->
+<div class="flex flex-wrap gap-2 pt-2 border-t border-brand-border/40">
+<span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-brand-sand text-brand-dark">Runway</span>
+<span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-brand-sand text-brand-dark">Kling</span>
+</div>
+</div>
+<!-- Creator Card 2: Maya Chen -->
+<div class="bg-white rounded-2xl p-4 border border-brand-border/70 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
+<div>
+<div class="relative aspect-square rounded-xl overflow-hidden mb-4 bg-brand-sand">
+<img alt="Maya Chen" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvaDYMQXvI7NXb5Ynhax2m9bGpmWAUDUCIERcGxAbVDosgZ-duIzmkNIMapHPTunEbXksZHioLSrK96mLD_xqEp2vqwj3r5Ms4SO4lykEyWoQ9jwkO_1R-28ouaYjwIwYIR7Nv6RmVpbPPhionMj3q_KegvkO1o6X44F5FV_c468lc_w5yNNtIeEAthPECIFw_TiG9MyFXC1OToE8a_IbNmE_YdNEzpCXOgY-AzG1d1Q1hn04ZuT3Xpw"/>
+<button aria-label="Favorite" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-brand-dark hover:text-brand-accent transition">
+<i class="w-4 h-4" data-lucide="heart"></i>
+</button>
+</div>
+<div class="flex items-center justify-between mb-1">
+<h3 class="font-bold text-base text-brand-dark">Maya Chen</h3>
+<div class="flex items-center gap-1 text-xs font-semibold text-brand-dark">
+<i class="w-3.5 h-3.5 text-amber-500 fill-amber-500" data-lucide="star"></i>
+<span>4.9</span>
+<span class="text-brand-muted font-normal">(128)</span>
+</div>
+</div>
+<p class="text-xs text-brand-muted mb-4">Generative Artist</p>
+</div>
+<!-- Tool Tags -->
+<div class="flex flex-wrap gap-2 pt-2 border-t border-brand-border/40">
+<span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-brand-sand text-brand-dark">Midjourney</span>
+<span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-brand-sand text-brand-dark">ComfyUI</span>
+</div>
+</div>
+<!-- Creator Card 3: Daniel Park -->
+<div class="bg-white rounded-2xl p-4 border border-brand-border/70 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
+<div>
+<div class="relative aspect-square rounded-xl overflow-hidden mb-4 bg-brand-sand">
+<img alt="Daniel Park" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4Ww_FqjHcWuVOe6ujlQQHgNBwOIPxWLeDDlFjQs6jegYk5YM0MC4LAzYFpu-dTNIMkxLeulMbGtMoKL3OS5QJvHCajp-fUJOTv-Y-KUeNmzyFxZdYaCmpAXMWK_JNZ2HUUbppKuFHC1Lm95a8ArVsWv9qEfoh_kBRxztaRLnqyCJyySpibDC-iQ8_LxxNRMnsOgN9cTSx51SaHOkvzMWUqIq7nxqHHrsiUNVIDpCszSx4l7tPSG_VLw"/>
+<button aria-label="Favorite" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-brand-dark hover:text-brand-accent transition">
+<i class="w-4 h-4" data-lucide="heart"></i>
+</button>
+</div>
+<div class="flex items-center justify-between mb-1">
+<h3 class="font-bold text-base text-brand-dark">Daniel Park</h3>
+<div class="flex items-center gap-1 text-xs font-semibold text-brand-dark">
+<i class="w-3.5 h-3.5 text-amber-500 fill-amber-500" data-lucide="star"></i>
+<span>4.7</span>
+<span class="text-brand-muted font-normal">(84)</span>
+</div>
+</div>
+<p class="text-xs text-brand-muted mb-4">3D Artist</p>
+</div>
+<!-- Tool Tags -->
+<div class="flex flex-wrap gap-2 pt-2 border-t border-brand-border/40">
+<span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-brand-sand text-brand-dark">Blender</span>
+<span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-brand-sand text-brand-dark">Unreal</span>
+</div>
+</div>
+<!-- Creator Card 4: Sofia Rivera -->
+<div class="bg-white rounded-2xl p-4 border border-brand-border/70 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
+<div>
+<div class="relative aspect-square rounded-xl overflow-hidden mb-4 bg-brand-sand">
+<img alt="Sofia Rivera" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGtn9GUMVe3ZkeqoLcB9Mb_x_6ubI17wAR2lvyXQQCV-jdRSwqFNeXo0RnzXFUhBr3lgaCfxVi2Kc0_UiKDp50zrJ7vyruDHvrbXFaSPta1UXIPHTaT6ZLvMEMWEifGDzfin4hDGdoB9AhZouV5tBNorBSvVt1yIeLUO7lCFWUpSroBi5uRixavtoM-wEgJk8wJNXGCsa30wIUJbOoytwQRKvdxpebRmO4pYl-APL8Z1baixHP9mHLvA"/>
+<button aria-label="Favorite" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-brand-dark hover:text-brand-accent transition">
+<i class="w-4 h-4" data-lucide="heart"></i>
+</button>
+</div>
+<div class="flex items-center justify-between mb-1">
+<h3 class="font-bold text-base text-brand-dark">Sofia Rivera</h3>
+<div class="flex items-center gap-1 text-xs font-semibold text-brand-dark">
+<i class="w-3.5 h-3.5 text-amber-500 fill-amber-500" data-lucide="star"></i>
+<span>4.8</span>
+<span class="text-brand-muted font-normal">(76)</span>
+</div>
+</div>
+<p class="text-xs text-brand-muted mb-4">AI Fashion Designer</p>
+</div>
+<!-- Tool Tags -->
+<div class="flex flex-wrap gap-2 pt-2 border-t border-brand-border/40">
+<span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-brand-sand text-brand-dark">DALL-E</span>
+<span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-brand-sand text-brand-dark">Stable Diffusion</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: FeaturedCreatorsSection -->
+<!-- BEGIN: HowItWorksSection -->
+<section class="py-24 bg-[#FAF7F2]" id="how-it-works">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-16">
+<div class="text-[11px] font-bold tracking-widest text-brand-accent uppercase mb-2">How It Works</div>
+<h2 class="text-3xl sm:text-4xl font-serif-display font-medium text-brand-dark">From idea to extraordinary.</h2>
+</div>
+<!-- 4 Step Process Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Step 01 -->
+<div class="relative flex flex-col items-start group">
+<div class="w-12 h-12 rounded-2xl bg-brand-accent-soft text-brand-accent flex items-center justify-center mb-6 border border-brand-accent/20 group-hover:scale-105 transition">
+<i class="w-5 h-5" data-lucide="search"></i>
+</div>
+<div class="text-xs font-mono font-semibold text-brand-accent mb-1">01</div>
+<h3 class="text-xl font-bold text-brand-dark mb-2">Discover</h3>
+<p class="text-sm text-brand-muted leading-relaxed">
+              Find talented AI creators across styles, models and production tools tailored to your aesthetic.
+            </p>
+</div>
+<!-- Step 02 -->
+<div class="relative flex flex-col items-start group">
+<div class="w-12 h-12 rounded-2xl bg-brand-accent-soft text-brand-accent flex items-center justify-center mb-6 border border-brand-accent/20 group-hover:scale-105 transition">
+<i class="w-5 h-5" data-lucide="file-text"></i>
+</div>
+<div class="text-xs font-mono font-semibold text-brand-accent mb-1">02</div>
+<h3 class="text-xl font-bold text-brand-dark mb-2">Define</h3>
+<p class="text-sm text-brand-muted leading-relaxed">
+              Share your project needs with a clear, structured creative brief and set milestones easily.
+            </p>
+</div>
+<!-- Step 03 -->
+<div class="relative flex flex-col items-start group">
+<div class="w-12 h-12 rounded-2xl bg-brand-accent-soft text-brand-accent flex items-center justify-center mb-6 border border-brand-accent/20 group-hover:scale-105 transition">
+<i class="w-5 h-5" data-lucide="users"></i>
+</div>
+<div class="text-xs font-mono font-semibold text-brand-accent mb-1">03</div>
+<h3 class="text-xl font-bold text-brand-dark mb-2">Collaborate</h3>
+<p class="text-sm text-brand-muted leading-relaxed">
+              Connect, review generations, and iterate with the right creator in real-time conversations.
+            </p>
+</div>
+<!-- Step 04 -->
+<div class="relative flex flex-col items-start group">
+<div class="w-12 h-12 rounded-2xl bg-brand-accent-soft text-brand-accent flex items-center justify-center mb-6 border border-brand-accent/20 group-hover:scale-105 transition">
+<i class="w-5 h-5" data-lucide="sparkles"></i>
+</div>
+<div class="text-xs font-mono font-semibold text-brand-accent mb-1">04</div>
+<h3 class="text-xl font-bold text-brand-dark mb-2">Bring to Life</h3>
+<p class="text-sm text-brand-muted leading-relaxed">
+              Receive stunning, high-res AI content ready for distribution, marketing and your vision.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HowItWorksSection -->
+<!-- BEGIN: CallToActionBanner -->
+<section class="py-16 px-6">
+<div class="max-w-7xl mx-auto rounded-3xl bg-gradient-to-r from-[#FDE8DF] via-[#FCECE5] to-[#F7DECE] p-10 sm:p-16 border border-brand-accent/20 shadow-sm relative overflow-hidden">
+<!-- Subtle decorative warm glow circle -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-brand-accent/10 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 max-w-2xl">
+<div class="text-[11px] font-bold tracking-widest text-brand-accent uppercase mb-3">Ready to turn ideas into extraordinary content?</div>
+<h2 class="text-4xl sm:text-5xl font-serif-display font-medium text-brand-dark mb-8 leading-tight">
+            Your next great campaign starts with a creator.
+          </h2>
+<div class="flex flex-wrap items-center gap-4">
+<a class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand-accent text-white font-medium hover:bg-brand-accent-hover transition shadow-sm hover:shadow" href="#creators">
+<span>Explore Creators</span>
+<i class="w-4 h-4" data-lucide="arrow-right"></i>
+</a>
+<a class="inline-flex items-center px-7 py-3.5 rounded-full bg-white/90 text-brand-dark font-medium border border-brand-border/80 hover:bg-white transition" href="#post-project">
+              Post a Project
+            </a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CallToActionBanner -->
+</main>
+<!-- BEGIN: Footer -->
+<footer class="border-t border-brand-border/60 py-12 bg-[#FAF7F2]">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-brand-muted">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-brand-accent flex items-center justify-center text-white">
+<i class="w-3 h-3 fill-white" data-lucide="sparkle"></i>
+</div>
+<span class="font-bold text-brand-dark">Curators</span>
+<span class="text-xs">© 2026 Curators Inc. All rights reserved.</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-brand-dark transition" href="#">Privacy Policy</a>
+<a class="hover:text-brand-dark transition" href="#">Terms of Service</a>
+<a class="hover:text-brand-dark transition" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<!-- END: Footer -->
+<!-- Icon Rendering Script -->
+<script data-purpose="icon-initialization">
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body></html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign In / Sign Up - AI Creators Platform</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#FDF8F5',
+              100: '#FBEFEA',
+              200: '#F7DEC3',
+              300: '#EEBD9B',
+              500: '#E05D38',
+              600: '#D24E27',
+              700: '#B83E1A',
+              900: '#431407',
+            },
+            sand: {
+              50: '#FAF8F5',
+              100: '#F5F0E8',
+              200: '#ECE3D4',
+              300: '#DDD0BC',
+              800: '#2A241F',
+              900: '#1C1814',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="custom-decorations">
+    /* Architectural Arches & Ambient Atmosphere */
+    .arch-bg {
+      background: radial-gradient(circle at 80% 20%, rgba(247, 222, 195, 0.45) 0%, rgba(250, 248, 245, 0) 65%),
+                  radial-gradient(circle at 20% 80%, rgba(224, 93, 56, 0.08) 0%, rgba(250, 248, 245, 0) 50%);
+    }
+    
+    .curved-arch {
+      border-top-left-radius: 140px;
+      border-top-right-radius: 140px;
+    }
+
+    .subtle-shadow {
+      box-shadow: 0 20px 45px -12px rgba(184, 62, 26, 0.09), 0 1px 3px 0 rgba(0, 0, 0, 0.03);
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="bg-[#F8F5F0] text-sand-800 font-sans min-h-screen flex flex-col antialiased selection:bg-brand-500 selection:text-white">
+<!-- BEGIN: PlatformTopNav -->
+<!-- Subtle minimal top header bar matching creator portal -->
+<header class="w-full bg-[#F8F5F0]/80 backdrop-blur-md border-b border-[#EAE3D6] px-6 py-3.5 sticky top-0 z-40">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<!-- Logo Icon: Geometric AI Starburst -->
+<a class="flex items-center space-x-2.5 group" href="#">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-600 to-amber-500 flex items-center justify-center text-white shadow-sm shadow-brand-500/30">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"></path>
+</svg>
+</div>
+<span class="font-bold text-lg tracking-tight text-sand-900 group-hover:text-brand-600 transition-colors">AI Creators.</span>
+</a>
+</div>
+<div class="flex items-center space-x-6 text-xs sm:text-sm font-medium text-stone-600">
+<a class="hover:text-stone-900 transition-colors" href="#">Explore Creators</a>
+<a class="hover:text-stone-900 transition-colors" href="#">How it Works</a>
+<span class="text-stone-300">|</span>
+<span class="text-stone-500">Don't have an account? <a class="text-brand-600 font-semibold hover:underline" href="#">Sign up</a></span>
+</div>
+</div>
+</header>
+<!-- END: PlatformTopNav -->
+<!-- BEGIN: MainContentLayout -->
+<main class="flex-1 flex max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 gap-8 items-start relative arch-bg">
+<!-- BEGIN: SidebarNavigation -->
+<!-- Navigation sidebar matching Screen 7 specs -->
+<aside class="hidden md:flex flex-col w-60 shrink-0 bg-white/70 backdrop-blur-sm rounded-2xl p-5 border border-[#ECE4D8] shadow-sm" data-purpose="platform-sidebar">
+<div class="text-[11px] font-bold uppercase tracking-wider text-stone-400 px-3 mb-3">Navigation</div>
+<nav class="flex flex-col space-y-1">
+<!-- Home Link -->
+<a class="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 transition-all font-medium text-sm" href="#">
+<svg class="w-4 h-4 text-stone-500" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Home</span>
+</a>
+<!-- My Briefs Link -->
+<a class="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 transition-all font-medium text-sm" href="#">
+<svg class="w-4 h-4 text-stone-500" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>My Briefs</span>
+</a>
+<!-- Find Creators Link -->
+<a class="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 transition-all font-medium text-sm" href="#">
+<svg class="w-4 h-4 text-stone-500" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Find Creators</span>
+</a>
+<!-- Messages Link -->
+<a class="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 transition-all font-medium text-sm" href="#">
+<svg class="w-4 h-4 text-stone-500" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Messages</span>
+</a>
+<!-- Settings Link -->
+<a class="flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 transition-all font-medium text-sm" href="#">
+<svg class="w-4 h-4 text-stone-500" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Settings</span>
+</a>
+</nav>
+<!-- Sidebar Footnote / Platform Support info -->
+<div class="mt-auto pt-6 border-t border-stone-200/60">
+<div class="p-3 bg-brand-50 rounded-xl border border-brand-200/50">
+<p class="text-xs font-semibold text-brand-900">Need creative help?</p>
+<p class="text-[11px] text-stone-500 mt-0.5">Explore our guide on working with top AI talents.</p>
+</div>
+</div>
+</aside>
+<!-- END: SidebarNavigation -->
+<!-- BEGIN: CenterAuthSection -->
+<section class="flex-1 w-full flex items-center justify-center py-4 lg:py-8">
+<!-- Ambient Background Graphic container (Architectural Arches) -->
+<div class="relative w-full max-w-md">
+<!-- Decorative Ambient Arch behind the card -->
+<div class="absolute -top-12 -right-8 w-44 h-56 border-2 border-brand-200/40 curved-arch pointer-events-none -z-10 rotate-12 opacity-60"></div>
+<div class="absolute -bottom-8 -left-8 w-36 h-48 border border-amber-300/40 curved-arch pointer-events-none -z-10 -rotate-6 opacity-40"></div>
+<!-- Main Login Card -->
+<div class="bg-white/95 backdrop-blur-xl border border-[#ECE5D9] rounded-3xl p-8 sm:p-10 subtle-shadow w-full" data-purpose="login-card">
+<!-- Header and Subtitles -->
+<div class="text-center mb-8">
+<h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-stone-900 mb-2">Welcome Back</h1>
+<p class="text-sm text-stone-500 leading-relaxed">Log in to continue your creative journey.</p>
+</div>
+<!-- Login Form -->
+<form class="space-y-4" onsubmit="event.preventDefault();">
+<!-- Email Input Field -->
+<div data-purpose="form-group-email">
+<label class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1.5 ml-0.5" for="email">Email Address</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-xl border border-stone-200 bg-stone-50/50 text-stone-900 text-sm placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-colors" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Input Field -->
+<div data-purpose="form-group-password">
+<div class="flex items-center justify-between mb-1.5 ml-0.5">
+<label class="block text-xs font-semibold uppercase tracking-wider text-stone-600" for="password">Password</label>
+<a class="text-xs font-medium text-brand-600 hover:text-brand-700 hover:underline transition-colors" href="#">Forgot password?</a>
+</div>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-xl border border-stone-200 bg-stone-50/50 text-stone-900 text-sm placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-colors" id="password" name="password" placeholder="••••••••••••" required="" type="password"/>
+</div>
+</div>
+<!-- Primary Action Button: Terracotta / Coral Tone -->
+<div class="pt-2">
+<button class="w-full py-3.5 px-4 bg-brand-500 hover:bg-brand-600 active:bg-brand-700 text-white font-medium rounded-xl text-sm shadow-md shadow-brand-500/20 transition duration-150 ease-in-out flex items-center justify-center space-x-2 cursor-pointer" type="submit">
+<span>Log In</span>
+<svg class="w-4 h-4 fill-none stroke-current stroke-2" viewbox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</form>
+<!-- Social Authentication Divider -->
+<div class="relative my-7 text-center">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-stone-200"></div>
+</div>
+<span class="relative bg-white px-3 text-xs text-stone-400 font-normal uppercase tracking-wider">or continue with</span>
+</div>
+<!-- Social Buttons: Google & Apple -->
+<div class="grid grid-cols-2 gap-3.5" data-purpose="social-auth-actions">
+<!-- Google Login Button -->
+<button class="flex items-center justify-center space-x-2.5 py-2.5 px-4 rounded-xl border border-stone-200 bg-white hover:bg-stone-50 text-stone-700 text-sm font-medium transition duration-150 cursor-pointer shadow-sm hover:border-stone-300" type="button">
+<svg class="w-4 h-4" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
+</svg>
+<span>Google</span>
+</button>
+<!-- Apple Login Button -->
+<button class="flex items-center justify-center space-x-2.5 py-2.5 px-4 rounded-xl border border-stone-200 bg-white hover:bg-stone-50 text-stone-700 text-sm font-medium transition duration-150 cursor-pointer shadow-sm hover:border-stone-300" type="button">
+<svg class="w-4 h-4 fill-stone-900" viewbox="0 0 170 170">
+<path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.68-7.85-11.96-14.43-5.74-8.81-10.28-19.16-13.62-31.05-3.34-11.89-5.01-23.29-5.01-34.19 0-14.59 3.65-26.68 10.95-36.27 7.3-9.59 16.33-14.45 27.09-14.59 5.37 0 11.21 1.48 17.51 4.45 6.3 2.97 10.15 4.51 11.55 4.62 1.95-.22 6.04-1.89 12.27-5 6.23-3.12 12.06-4.58 17.5-4.38 13.59.65 24.38 5.66 32.37 15.02-11.85 7.18-17.65 17.07-17.4 29.67.24 9.8 4.09 17.88 11.55 24.23 7.46 6.36 16.48 10.05 27.06 11.08-2.28 7.07-5.04 14.15-8.28 21.23zM119.22 33.15c0-7.39 2.66-14.41 7.98-21.06 5.32-6.65 11.97-10.91 19.95-12.79.43 1.96.65 3.81.65 5.56 0 7.39-2.77 14.5-8.31 21.33-5.54 6.83-12.3 11.05-20.27 12.66v-5.7z"></path>
+</svg>
+<span>Apple</span>
+</button>
+</div>
+<!-- Bottom Prompt -->
+<div class="mt-8 text-center">
+<p class="text-xs text-stone-500">
+              New here? 
+              <a class="font-semibold text-brand-600 hover:text-brand-700 ml-1 hover:underline" href="#">Create a free account</a>
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CenterAuthSection -->
+</main>
+<!-- END: MainContentLayout -->
+<!-- BEGIN: MinimalFooter -->
+<footer class="w-full border-t border-[#ECE5D9] bg-stone-100/40 py-4 px-6 mt-auto">
+<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-2">
+<p>© 2026 AI Creators Network. All rights reserved.</p>
+<div class="flex items-center space-x-4">
+<a class="hover:underline" href="#">Privacy Policy</a>
+<a class="hover:underline" href="#">Terms of Service</a>
+<a class="hover:underline" href="#">Support</a>
+</div>
+</div>
+</footer>
+<!-- END: MinimalFooter -->
+</body></html>

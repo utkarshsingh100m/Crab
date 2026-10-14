@@ -1,0 +1,110 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        surface: '#FAF7F2',
+        brand: {
+          cream: '#FAF7F2',
+          sand: '#F3EDE4',
+          surface: '#FFFFFF',
+          border: '#E8DFD3',
+          dark: '#1C1613',
+          muted: '#71655F',
+          accent: '#E65D2E',
+          'accent-hover': '#CE4B1E',
+          'accent-soft': '#FBECE5',
+          glow: '#FFE8DC',
+          terracotta: '#E05A34',
+          'terracotta-hover': '#C94B27',
+          'terracotta-light': '#FDF1EC',
+          50: '#FCF8F5',
+          100: '#F8EFE9',
+          200: '#F2DFD4',
+          500: '#E05D38',
+          600: '#CA4825',
+          700: '#A9391D',
+        },
+        sand: {
+          50: '#FAF8F5',
+          100: '#F4EFEA',
+          200: '#E8DFD5',
+          300: '#D5C8B8',
+          800: '#2A2421',
+          900: '#1A1614',
+        },
+        navy: {
+          DEFAULT: '#172554',
+          50: '#EFF3FF',
+          100: '#DBE4FF',
+          800: '#1E3A8A',
+          900: '#172554',
+        },
+        electric: {
+          DEFAULT: '#E65D2E', // Align with warm terracotta
+          50: '#FBECE5',
+          100: '#F8EFE9',
+          400: '#F2DFD4',
+          500: '#E05D38',
+          600: '#E65D2E',
+          700: '#CA4825',
+        },
+        violet: {
+          DEFAULT: '#7C3AED',
+          50: '#F5F3FF',
+          100: '#EDE9FE',
+          400: '#A78BFA',
+          500: '#8B5CF6',
+          600: '#7C3AED',
+          700: '#6D28D9',
+        },
+        teal: {
+          DEFAULT: '#0F766E',
+          50: '#F0FDFA',
+          100: '#CCFBF1',
+          400: '#2DD4BF',
+          500: '#14B8A6',
+          600: '#0D9488',
+          700: '#0F766E',
+        },
+        slate: {
+          DEFAULT: '#71655F',
+          50: '#FAF8F5',
+          100: '#F4EFEA',
+          200: '#E8DFD5',
+          300: '#D5C8B8',
+          400: '#9E948B',
+          500: '#71655F',
+          600: '#524944',
+          700: '#38322E',
+          800: '#2A2421',
+          900: '#1C1613',
+        }
+      },
+      fontFamily: {
+        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.3s ease-in-out',
+        'slide-up': 'slideUp 0.3s ease-out',
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(10px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+      },
+    },
+  },
+  plugins: [],
+}

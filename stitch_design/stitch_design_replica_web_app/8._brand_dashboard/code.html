@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brand Dashboard - AI Creator Marketplace</title>
+<!-- Tailwind CSS CDN with forms & container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Custom Tailwind Configuration for exact warm palette -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#FDFBF7',
+              beige: '#F5EFE6',
+              surface: '#FFFFFF',
+              terracotta: '#E05A34',
+              'terracotta-hover': '#C94B27',
+              'terracotta-light': '#FDF1EC',
+              dark: '#1C1917',
+              muted: '#78716C',
+              border: '#EAE4DC'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+<!-- Font Awesome Icons for consistent UI accents -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style data-purpose="custom-scrollbars">
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FDFBF7;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #EAE4DC;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D8D0C5;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF7F2] text-brand-dark min-h-screen antialiased flex flex-col font-sans">
+<!-- BEGIN: ApplicationLayout -->
+<div class="flex-1 flex w-full min-h-screen">
+<!-- BEGIN: LeftSidebar -->
+<aside class="w-64 bg-white border-r border-brand-border flex flex-col justify-between p-6 shrink-0 hidden md:flex" data-purpose="primary-sidebar">
+<div>
+<!-- Platform Logo / Brand Name -->
+<div class="flex items-center gap-2.5 mb-10 px-2 cursor-pointer">
+<div class="w-7 h-7 rounded-full bg-brand-terracotta flex items-center justify-center text-white text-xs font-bold shadow-sm">
+            ✦
+          </div>
+<span class="font-bold text-lg tracking-tight text-brand-dark">GenAI Creators</span>
+</div>
+<!-- Sidebar Navigation Menu -->
+<nav aria-label="Main Navigation" class="space-y-1.5">
+<!-- Nav Item: Home (Active) -->
+<a class="flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl font-medium text-sm text-brand-terracotta bg-brand-terracotta-light transition-colors" href="#">
+<i class="fa-solid fa-house text-base w-5 text-center"></i>
+<span>Home</span>
+</a>
+<!-- Nav Item: Find Creators -->
+<a class="flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl font-medium text-sm text-brand-muted hover:text-brand-dark hover:bg-stone-50 transition-colors" href="#">
+<i class="fa-solid fa-compass text-base w-5 text-center"></i>
+<span>Find Creators</span>
+</a>
+<!-- Nav Item: Messages -->
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl font-medium text-sm text-brand-muted hover:text-brand-dark hover:bg-stone-50 transition-colors" href="#">
+<div class="flex items-center gap-3.5">
+<i class="fa-regular fa-comment-dots text-base w-5 text-center"></i>
+<span>Messages</span>
+</div>
+<span class="bg-brand-terracotta text-white text-[10px] font-semibold px-2 py-0.5 rounded-full">3</span>
+</a>
+<!-- Nav Item: Settings -->
+<a class="flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl font-medium text-sm text-brand-muted hover:text-brand-dark hover:bg-stone-50 transition-colors" href="#">
+<i class="fa-solid fa-gear text-base w-5 text-center"></i>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<!-- User Mini Profile Footer in Sidebar -->
+<div class="pt-6 border-t border-brand-border/60 flex items-center justify-between px-2">
+<div class="flex items-center gap-3">
+<img alt="Sanjeet avatar" class="w-9 h-9 rounded-full object-cover ring-1 ring-brand-border" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6Ne3HWyGPmxq1hqVpQ45-cQjJQhMD7DVLCz4eGbURUIXEHcGYvf7jt2f0MHDl5tIjuCoFtEA4tDyuduCiLpXR4FequmuSOhckDBIjilcT2ZlhyR006k_a8HoDM0h5Vwmhcf3slPhD5byakh93EdD5KqIvfzAQto1eCfXXLZoztv1m_BTaT07o0uoyzoqBxxtzsjv-e77bacTuVxZ7-nQJ2mkjbgdeA-2EJUoLLk8y2akLGQ0Gcn-Mlw"/>
+<div class="flex flex-col text-left">
+<span class="text-xs font-semibold text-brand-dark">Sanjeet K.</span>
+<span class="text-[11px] text-brand-muted">Brand Producer</span>
+</div>
+</div>
+<button class="text-stone-400 hover:text-brand-dark p-1 rounded transition-colors" title="Logout">
+<i class="fa-solid fa-arrow-right-from-bracket text-xs"></i>
+</button>
+</div>
+</aside>
+<!-- END: LeftSidebar -->
+<!-- BEGIN: MainContentArea -->
+<main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+<!-- Top Utility Header for mobile / quick action search -->
+<header class="h-16 border-b border-brand-border bg-white/80 backdrop-blur-md px-6 flex items-center justify-between sticky top-0 z-20" data-purpose="top-header">
+<div class="flex items-center gap-3 md:hidden">
+<div class="w-7 h-7 rounded-full bg-brand-terracotta flex items-center justify-center text-white text-xs font-bold">✦</div>
+<span class="font-bold text-base text-brand-dark">Brand Center</span>
+</div>
+<div class="hidden sm:flex items-center gap-2 text-xs text-brand-muted">
+<span>Workspace</span>
+<span>/</span>
+<span class="text-brand-dark font-medium">Dashboard Overview</span>
+</div>
+<div class="flex items-center gap-3 ml-auto">
+<button class="px-3.5 py-1.5 text-xs font-medium border border-brand-border rounded-lg text-brand-dark bg-white hover:bg-stone-50 transition-colors shadow-sm">
+<i class="fa-solid fa-plus mr-1.5 text-brand-terracotta"></i> Post a Brief
+          </button>
+<button class="w-8 h-8 rounded-full border border-brand-border flex items-center justify-center text-stone-500 hover:bg-stone-50 transition-colors">
+<i class="fa-regular fa-bell text-xs"></i>
+</button>
+</div>
+</header>
+<div class="p-6 md:p-8 lg:p-10 max-w-7xl w-full mx-auto space-y-8">
+<!-- Welcome Banner Section -->
+<section class="flex flex-col md:flex-row md:items-center justify-between gap-4" data-purpose="dashboard-greeting">
+<div>
+<h1 class="text-2xl md:text-3xl font-serif font-bold text-brand-dark tracking-tight">
+              Welcome back, Sanjeet!
+            </h1>
+<p class="text-sm text-brand-muted mt-1">
+              Here's what's happening with your projects today.
+            </p>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200/60">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              All systems active
+            </span>
+</div>
+</section>
+<!-- BEGIN: KPISummaryCards -->
+<!-- Row of 4 Metric Highlight Cards -->
+<section aria-label="Key Performance Indicators" class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5" data-purpose="metric-kpis">
+<!-- KPI 1: Active Briefs -->
+<div class="bg-white rounded-2xl p-5 border border-brand-border/80 shadow-sm hover:border-brand-terracotta/40 transition-all flex flex-col justify-between">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-medium text-brand-muted uppercase tracking-wider">Active Briefs</span>
+<span class="w-7 h-7 rounded-lg bg-orange-50 text-brand-terracotta flex items-center justify-center text-xs">
+<i class="fa-solid fa-bullhorn"></i>
+</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-serif font-bold text-brand-dark">12</span>
+<span class="text-xs text-emerald-600 font-medium">+2 this week</span>
+</div>
+</div>
+<!-- KPI 2: Applications -->
+<div class="bg-white rounded-2xl p-5 border border-brand-border/80 shadow-sm hover:border-brand-terracotta/40 transition-all flex flex-col justify-between">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-medium text-brand-muted uppercase tracking-wider">Applications</span>
+<span class="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs">
+<i class="fa-solid fa-file-invoice"></i>
+</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-serif font-bold text-brand-dark">28</span>
+<span class="text-xs text-emerald-600 font-medium">8 new unread</span>
+</div>
+</div>
+<!-- KPI 3: Shortlisted Creators -->
+<div class="bg-white rounded-2xl p-5 border border-brand-border/80 shadow-sm hover:border-brand-terracotta/40 transition-all flex flex-col justify-between">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-medium text-brand-muted uppercase tracking-wider">Shortlisted Creators</span>
+<span class="w-7 h-7 rounded-lg bg-rose-50 text-rose-500 flex items-center justify-center text-xs">
+<i class="fa-regular fa-bookmark"></i>
+</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-serif font-bold text-brand-dark">5</span>
+<span class="text-xs text-brand-muted">Ready to hire</span>
+</div>
+</div>
+<!-- KPI 4: Ongoing Projects -->
+<div class="bg-white rounded-2xl p-5 border border-brand-border/80 shadow-sm hover:border-brand-terracotta/40 transition-all flex flex-col justify-between">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-medium text-brand-muted uppercase tracking-wider">Ongoing Projects</span>
+<span class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs">
+<i class="fa-solid fa-spinner"></i>
+</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-serif font-bold text-brand-dark">3</span>
+<span class="text-xs text-stone-500">In production</span>
+</div>
+</div>
+</section>
+<!-- END: KPISummaryCards -->
+<!-- BEGIN: DashboardBodyColumns -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Left Column: Recent Briefs (Spans 8 cols on desktop) -->
+<section class="lg:col-span-8 bg-white rounded-2xl p-6 border border-brand-border/80 shadow-sm" data-purpose="recent-briefs-section">
+<div class="flex items-center justify-between mb-6 pb-2 border-b border-stone-100">
+<div>
+<h2 class="text-lg font-bold text-brand-dark">Recent Briefs</h2>
+<p class="text-xs text-brand-muted mt-0.5">Manage and view submissions for current campaigns</p>
+</div>
+<a class="text-xs font-semibold text-brand-terracotta hover:text-brand-terracotta-hover transition-colors inline-flex items-center gap-1" href="#">
+                View All Briefs <i class="fa-solid fa-angle-right text-[10px]"></i>
+</a>
+</div>
+<!-- Briefs List Container -->
+<div class="space-y-3.5">
+<!-- Brief Item 1 -->
+<div class="group flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl border border-brand-border/60 hover:border-brand-terracotta/40 hover:bg-[#FDFBF9] transition-all gap-4" data-purpose="brief-item">
+<div class="flex items-center gap-3.5">
+<div class="w-11 h-11 rounded-xl bg-orange-100/70 border border-orange-200/50 flex items-center justify-center text-brand-terracotta shrink-0">
+<i class="fa-solid fa-wand-magic-sparkles text-sm"></i>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-brand-dark group-hover:text-brand-terracotta transition-colors">
+                      Futuristic Product Launch
+                    </h3>
+<div class="flex items-center gap-2 mt-1 text-xs text-brand-muted">
+<span>14 applications</span>
+<span>•</span>
+<span class="text-stone-500">2 weeks left</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between sm:justify-end gap-3 shrink-0">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-emerald-50 text-emerald-700 border border-emerald-200/60">
+                    Active
+                  </span>
+<a class="text-xs font-medium text-brand-terracotta hover:underline inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform" href="#">
+                    View <span aria-hidden="true">→</span>
+</a>
+</div>
+</div>
+<!-- Brief Item 2 -->
+<div class="group flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl border border-brand-border/60 hover:border-brand-terracotta/40 hover:bg-[#FDFBF9] transition-all gap-4" data-purpose="brief-item">
+<div class="flex items-center gap-3.5">
+<div class="w-11 h-11 rounded-xl bg-rose-100/70 border border-rose-200/50 flex items-center justify-center text-rose-600 shrink-0">
+<i class="fa-solid fa-shirt text-sm"></i>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-brand-dark group-hover:text-brand-terracotta transition-colors">
+                      AI Fashion Campaign
+                    </h3>
+<div class="flex items-center gap-2 mt-1 text-xs text-brand-muted">
+<span>18 applications</span>
+<span>•</span>
+<span class="text-stone-500">3 weeks left</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between sm:justify-end gap-3 shrink-0">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-emerald-50 text-emerald-700 border border-emerald-200/60">
+                    Active
+                  </span>
+<a class="text-xs font-medium text-brand-terracotta hover:underline inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform" href="#">
+                    View <span aria-hidden="true">→</span>
+</a>
+</div>
+</div>
+<!-- Brief Item 3 -->
+<div class="group flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl border border-brand-border/60 hover:border-brand-terracotta/40 hover:bg-[#FDFBF9] transition-all gap-4" data-purpose="brief-item">
+<div class="flex items-center gap-3.5">
+<div class="w-11 h-11 rounded-xl bg-amber-100/70 border border-amber-200/50 flex items-center justify-center text-amber-600 shrink-0">
+<i class="fa-solid fa-film text-sm"></i>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-brand-dark group-hover:text-brand-terracotta transition-colors">
+                      Brand Story Video
+                    </h3>
+<div class="flex items-center gap-2 mt-1 text-xs text-brand-muted">
+<span>21 applications</span>
+<span>•</span>
+<span class="text-stone-500">1 month left</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between sm:justify-end gap-3 shrink-0">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-emerald-50 text-emerald-700 border border-emerald-200/60">
+                    Active
+                  </span>
+<a class="text-xs font-medium text-brand-terracotta hover:underline inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform" href="#">
+                    View <span aria-hidden="true">→</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Column: Recommended Creators (Spans 4 cols on desktop) -->
+<section class="lg:col-span-4 bg-white rounded-2xl p-6 border border-brand-border/80 shadow-sm" data-purpose="recommended-creators-card">
+<div class="flex items-center justify-between mb-5">
+<h2 class="text-base font-bold text-brand-dark">Recommended Creators</h2>
+<a class="text-xs font-semibold text-brand-terracotta hover:underline" href="#">See All</a>
+</div>
+<!-- List of Suggested Creators -->
+<div class="divide-y divide-stone-100">
+<!-- Creator 1: Maya Chen -->
+<div class="py-3.5 first:pt-0 last:pb-0 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<img alt="Maya Chen" class="w-10 h-10 rounded-full object-cover ring-2 ring-brand-cream shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCiuYTtG_XIJhL9Nv0HrPlVg3qKy_qOJQ7SJs55pQovLJsSNJdbJIygYTr4ISE8qRvK1RT0p3UA3Pf1IiFSXrJFhbAmu1gxdMqH8YHKdW2QvH0sLfvHpRtSOXfyXKUCU0hoWvf0YyDURme8scmEJyv1fCa5g2aHSgrene9XolG8ddP-V0BH7GgVbaO2QVR9GZElEw2FYOi-zrUJk01YZ17Z2-TeYe_CprAVEadSPUKs4isn9jB28UtTg"/>
+<div class="truncate">
+<h4 class="text-sm font-semibold text-brand-dark truncate">Maya Chen</h4>
+<div class="flex items-center gap-1.5 text-xs text-brand-muted mt-0.5">
+<i class="fa-solid fa-star text-amber-500 text-[10px]"></i>
+<span class="font-medium text-brand-dark">4.9</span>
+<span class="text-stone-400">·</span>
+<span class="truncate">Generative Artist</span>
+</div>
+</div>
+</div>
+<!-- Add to shortlist button -->
+<button aria-label="Add Maya Chen to shortlisted creators" class="w-8 h-8 rounded-full border border-brand-border flex items-center justify-center text-brand-dark hover:bg-brand-terracotta hover:text-white hover:border-brand-terracotta transition-colors shrink-0 shadow-xs" type="button">
+<i class="fa-solid fa-plus text-xs"></i>
+</button>
+</div>
+<!-- Creator 2: Arjun Malhotra -->
+<div class="py-3.5 first:pt-0 last:pb-0 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<img alt="Arjun Malhotra" class="w-10 h-10 rounded-full object-cover ring-2 ring-brand-cream shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8pfLWEB9v68K28h6eiRGcb1Fs5174tj-sT-lxPtgWrUc2SFnnV58nNqNXhQMkol99O9hlz_L40KaXHq6WIFgoVkXL8GpTU24xpRAzeQd4WaANu-9H4MBnQaBauCbzzQVkAaDd1qxScMiddZ2cYbojqz0jYyg6oQch_QQr2I3ioHwF4QH--Rc6UzDFLYHsnvcTdXGxUJGTX56lYbhPDKstqciWWEG4qzxofhYwKSQhQA6pKxq6m2714w"/>
+<div class="truncate">
+<h4 class="text-sm font-semibold text-brand-dark truncate">Arjun Malhotra</h4>
+<div class="flex items-center gap-1.5 text-xs text-brand-muted mt-0.5">
+<i class="fa-solid fa-star text-amber-500 text-[10px]"></i>
+<span class="font-medium text-brand-dark">4.8</span>
+<span class="text-stone-400">·</span>
+<span class="truncate">AI Filmmaker</span>
+</div>
+</div>
+</div>
+<!-- Add to shortlist button -->
+<button aria-label="Add Arjun Malhotra to shortlisted creators" class="w-8 h-8 rounded-full border border-brand-border flex items-center justify-center text-brand-dark hover:bg-brand-terracotta hover:text-white hover:border-brand-terracotta transition-colors shrink-0 shadow-xs" type="button">
+<i class="fa-solid fa-plus text-xs"></i>
+</button>
+</div>
+<!-- Creator 3: Sofia Rivera -->
+<div class="py-3.5 first:pt-0 last:pb-0 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<img alt="Sofia Rivera" class="w-10 h-10 rounded-full object-cover ring-2 ring-brand-cream shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-WG3YDTqLxli8Cgu9G8bTonzhJjDHZce5rRygISPZoumUuu0MlHIQfAJoo2C5gaeOBvJwmIb2RInkKfhAUVMmk-MCdtVOCurW6Dv58WdH0oI9-qHqS_xZYFAJFNCyCVOvAPxUJrV6xPrcu1AJ5YmnobSgSk4PHpiTgUKWWthYOAY7re42MHAJl9o_utpRA9mD9jtEvbfSSjJqLpXkww8CVklZhoTfFzcg-AmCQJ6zfl8kSLvBbvYV3g"/>
+<div class="truncate">
+<h4 class="text-sm font-semibold text-brand-dark truncate">Sofia Rivera</h4>
+<div class="flex items-center gap-1.5 text-xs text-brand-muted mt-0.5">
+<i class="fa-solid fa-star text-amber-500 text-[10px]"></i>
+<span class="font-medium text-brand-dark">4.8</span>
+<span class="text-stone-400">·</span>
+<span class="truncate">Fashion Designer</span>
+</div>
+</div>
+</div>
+<!-- Add to shortlist button -->
+<button aria-label="Add Sofia Rivera to shortlisted creators" class="w-8 h-8 rounded-full border border-brand-border flex items-center justify-center text-brand-dark hover:bg-brand-terracotta hover:text-white hover:border-brand-terracotta transition-colors shrink-0 shadow-xs" type="button">
+<i class="fa-solid fa-plus text-xs"></i>
+</button>
+</div>
+</div>
+<!-- Explore Talent Discovery CTA Banner inside card -->
+<div class="mt-6 pt-4 border-t border-stone-100">
+<a class="w-full py-2.5 px-3 bg-[#FAF7F2] hover:bg-stone-100 text-brand-dark text-xs font-semibold rounded-xl flex items-center justify-center gap-2 border border-brand-border/60 transition-colors" href="#">
+<i class="fa-solid fa-magnifying-glass text-brand-terracotta"></i>
+                Browse All Creators
+              </a>
+</div>
+</section>
+</div>
+<!-- END: DashboardBodyColumns -->
+</div>
+</main>
+<!-- END: MainContentArea -->
+</div>
+<!-- END: ApplicationLayout -->
+</body></html>

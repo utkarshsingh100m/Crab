@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create a New Brief - AI Creators Platform</title>
+<!-- Tailwind CSS v3 CDN with forms & container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Custom Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#FDF8F5',
+              100: '#FCEFE9',
+              200: '#F8D8CB',
+              500: '#E46638',
+              600: '#D95325',
+              700: '#B83D15',
+            },
+            surface: {
+              bg: '#FAF8F5',
+              card: '#FFFFFF',
+              border: '#EDE8E3',
+              muted: '#716B66'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for Subtle Aesthetics -->
+<style data-purpose="custom-layout">
+    body {
+      background-color: #FAF8F5;
+      color: #1E1B18;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #E2DDD7;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans antialiased text-[#1E1B18]">
+<!-- BEGIN: TopNavigationBar -->
+<header class="bg-white border-b border-[#EDE8E3] sticky top-0 z-40" data-purpose="top-navigation">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<!-- Logo and Platform Brand -->
+<div class="flex items-center space-x-3">
+<a class="flex items-center space-x-2 text-xl font-bold tracking-tight text-[#1E1B18]" href="#">
+<span class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#E46638] to-[#D95325] flex items-center justify-center text-white text-base shadow-sm">
+            ✦
+          </span>
+<span class="tracking-tight">aicreators</span>
+</a>
+<span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-[#FCEFE9] text-[#D95325] border border-[#F8D8CB]/60">Brands Hub</span>
+</div>
+<!-- Header Center / Navigation Links -->
+<nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-[#716B66]">
+<a class="hover:text-[#1E1B18] transition-colors" href="#">Creators</a>
+<a class="hover:text-[#1E1B18] transition-colors" href="#">Projects</a>
+<a class="hover:text-[#1E1B18] text-[#1E1B18] font-semibold transition-colors" href="#">Post a Brief</a>
+<a class="hover:text-[#1E1B18] transition-colors" href="#">How it Works</a>
+<a class="hover:text-[#1E1B18] transition-colors" href="#">Pricing</a>
+</nav>
+<!-- Right Actions: Avatar & Quick Control -->
+<div class="flex items-center space-x-4">
+<button class="text-sm font-medium text-[#716B66] hover:text-[#1E1B18] transition-colors" type="button">
+          Exit to Dashboard
+        </button>
+<div class="w-9 h-9 rounded-full bg-[#EAE6E1] border border-[#D5CFC9] flex items-center justify-center text-xs font-semibold text-[#5A5550]">
+          SJ
+        </div>
+</div>
+</div>
+</header>
+<!-- END: TopNavigationBar -->
+<!-- BEGIN: MainContentArea -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10" data-purpose="content-area">
+<!-- Top Header Banner / Intro -->
+<div class="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+<div>
+<h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-[#1E1B18]">Create a New Brief</h1>
+<p class="text-sm text-[#716B66] mt-1">Specify your campaign objectives to match with world-class AI filmmakers &amp; designers.</p>
+</div>
+<div class="flex items-center space-x-2 text-xs font-medium text-[#716B66] bg-white border border-[#EDE8E3] px-3 py-1.5 rounded-lg shadow-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>Auto-saving draft</span>
+</div>
+</div>
+<!-- Main Workspace Grid: 3-column layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- BEGIN: StepperColumn (Left) -->
+<aside class="lg:col-span-3 bg-white border border-[#EDE8E3] rounded-2xl p-5 shadow-sm" data-purpose="step-stepper-navigation">
+<div class="text-xs uppercase font-semibold text-[#8C857E] tracking-wider mb-5">Workflow Steps</div>
+<nav aria-label="Creation Steps" class="space-y-4">
+<!-- Step 1 (Active) -->
+<div class="flex items-center space-x-3.5 group cursor-pointer" data-purpose="step-item-active">
+<div class="w-8 h-8 rounded-full bg-[#E46638] text-white flex items-center justify-center font-bold text-sm shadow-sm ring-4 ring-[#FCEFE9]">
+              1
+            </div>
+<div>
+<span class="text-sm font-semibold text-[#1E1B18] group-hover:text-[#E46638] transition-colors block">Project Details</span>
+<span class="text-xs text-[#E46638] font-medium">In progress</span>
+</div>
+</div>
+<!-- Vertical Connector Line -->
+<div class="w-0.5 h-3 bg-[#EAE6E1] ml-4 -my-2"></div>
+<!-- Step 2 -->
+<div class="flex items-center space-x-3.5 group cursor-pointer" data-purpose="step-item">
+<div class="w-8 h-8 rounded-full border border-[#D8D2CB] text-[#716B66] bg-[#FAF8F5] flex items-center justify-center font-medium text-sm group-hover:border-[#E46638]">
+              2
+            </div>
+<div>
+<span class="text-sm font-medium text-[#716B66] group-hover:text-[#1E1B18] transition-colors block">Creative Requirements</span>
+<span class="text-xs text-[#9E9790]">Aesthetic &amp; Tools</span>
+</div>
+</div>
+<!-- Vertical Connector Line -->
+<div class="w-0.5 h-3 bg-[#EAE6E1] ml-4 -my-2"></div>
+<!-- Step 3 -->
+<div class="flex items-center space-x-3.5 group cursor-pointer" data-purpose="step-item">
+<div class="w-8 h-8 rounded-full border border-[#D8D2CB] text-[#716B66] bg-[#FAF8F5] flex items-center justify-center font-medium text-sm group-hover:border-[#E46638]">
+              3
+            </div>
+<div>
+<span class="text-sm font-medium text-[#716B66] group-hover:text-[#1E1B18] transition-colors block">Technical Details</span>
+<span class="text-xs text-[#9E9790]">Resolution, Formats</span>
+</div>
+</div>
+<!-- Vertical Connector Line -->
+<div class="w-0.5 h-3 bg-[#EAE6E1] ml-4 -my-2"></div>
+<!-- Step 4 -->
+<div class="flex items-center space-x-3.5 group cursor-pointer" data-purpose="step-item">
+<div class="w-8 h-8 rounded-full border border-[#D8D2CB] text-[#716B66] bg-[#FAF8F5] flex items-center justify-center font-medium text-sm group-hover:border-[#E46638]">
+              4
+            </div>
+<div>
+<span class="text-sm font-medium text-[#716B66] group-hover:text-[#1E1B18] transition-colors block">Commercial Use</span>
+<span class="text-xs text-[#9E9790]">Rights &amp; Budget</span>
+</div>
+</div>
+<!-- Vertical Connector Line -->
+<div class="w-0.5 h-3 bg-[#EAE6E1] ml-4 -my-2"></div>
+<!-- Step 5 -->
+<div class="flex items-center space-x-3.5 group cursor-pointer" data-purpose="step-item">
+<div class="w-8 h-8 rounded-full border border-[#D8D2CB] text-[#716B66] bg-[#FAF8F5] flex items-center justify-center font-medium text-sm group-hover:border-[#E46638]">
+              5
+            </div>
+<div>
+<span class="text-sm font-medium text-[#716B66] group-hover:text-[#1E1B18] transition-colors block">Review &amp; Publish</span>
+<span class="text-xs text-[#9E9790]">Final Confirmation</span>
+</div>
+</div>
+</nav>
+</aside>
+<!-- END: StepperColumn -->
+<!-- BEGIN: FormColumn (Center) -->
+<section class="lg:col-span-5 bg-white border border-[#EDE8E3] rounded-2xl p-6 sm:p-7 shadow-sm" data-purpose="step-content-form">
+<div class="border-b border-[#EDE8E3] pb-4 mb-6">
+<h2 class="text-xl font-bold text-[#1E1B18]">Project Details</h2>
+<p class="text-xs text-[#716B66] mt-1">Provide baseline details about your commercial production to engage creators.</p>
+</div>
+<form action="#" class="space-y-6" id="create-brief-form" method="POST" onsubmit="event.preventDefault();">
+<!-- Campaign Title Field -->
+<div data-purpose="form-group-title">
+<label class="block text-xs font-semibold text-[#1E1B18] uppercase tracking-wide mb-2" for="campaign-title">
+              Campaign Title <span class="text-[#E46638]">*</span>
+</label>
+<input class="w-full px-4 py-2.5 rounded-xl border border-[#EDE8E3] bg-[#FAF8F5] focus:bg-white focus:border-[#E46638] focus:ring-2 focus:ring-[#F8D8CB] outline-none text-sm font-medium text-[#1E1B18] placeholder-[#9E9790] transition" id="campaign-title" name="campaign_title" placeholder="e.g. Futuristic Product Launch" type="text" value="Futuristic Product Launch"/>
+</div>
+<!-- Description Field -->
+<div data-purpose="form-group-description">
+<label class="block text-xs font-semibold text-[#1E1B18] uppercase tracking-wide mb-2" for="description">
+              Description <span class="text-[#E46638]">*</span>
+</label>
+<textarea class="w-full px-4 py-3 rounded-xl border border-[#EDE8E3] bg-[#FAF8F5] focus:bg-white focus:border-[#E46638] focus:ring-2 focus:ring-[#F8D8CB] outline-none text-sm text-[#1E1B18] placeholder-[#9E9790] transition leading-relaxed resize-none" id="description" name="description" placeholder="Describe your project, goals and creative vision..." rows="4">A high-end cinematic product video for our new wireless earbuds. Modern, minimal style with photorealistic CGI aesthetic.</textarea>
+</div>
+<!-- Content Type Selector (Pills) -->
+<div data-purpose="form-group-content-type">
+<label class="block text-xs font-semibold text-[#1E1B18] uppercase tracking-wide mb-2">
+              Content Type <span class="text-[#E46638]">*</span>
+</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+<!-- Pill: Image -->
+<button class="px-3 py-2 text-xs font-medium rounded-xl border border-[#EDE8E3] bg-white text-[#716B66] hover:border-[#D5CFC9] hover:bg-[#FAF8F5] transition flex items-center justify-center space-x-1.5" data-purpose="content-type-option" type="button">
+<span>Image</span>
+</button>
+<!-- Pill: Video (Selected) -->
+<button class="px-3 py-2 text-xs font-semibold rounded-xl border border-[#E46638] bg-[#FCEFE9] text-[#D95325] ring-1 ring-[#E46638] transition flex items-center justify-center space-x-1.5 shadow-sm" data-purpose="content-type-option" type="button">
+<span>● Video</span>
+</button>
+<!-- Pill: Animation -->
+<button class="px-3 py-2 text-xs font-medium rounded-xl border border-[#EDE8E3] bg-white text-[#716B66] hover:border-[#D5CFC9] hover:bg-[#FAF8F5] transition flex items-center justify-center space-x-1.5" data-purpose="content-type-option" type="button">
+<span>Animation</span>
+</button>
+<!-- Pill: 3D -->
+<button class="px-3 py-2 text-xs font-medium rounded-xl border border-[#EDE8E3] bg-white text-[#716B66] hover:border-[#D5CFC9] hover:bg-[#FAF8F5] transition flex items-center justify-center space-x-1.5" data-purpose="content-type-option" type="button">
+<span>3D</span>
+</button>
+</div>
+</div>
+<!-- Dual Dropdown Selectors: Industry & Expected Timeline -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4" data-purpose="dropdown-selectors">
+<!-- Industry Dropdown -->
+<div>
+<label class="block text-xs font-semibold text-[#1E1B18] uppercase tracking-wide mb-2" for="industry-select">
+                Industry
+              </label>
+<div class="relative">
+<select class="w-full px-3.5 py-2.5 rounded-xl border border-[#EDE8E3] bg-[#FAF8F5] focus:bg-white focus:border-[#E46638] focus:ring-2 focus:ring-[#F8D8CB] outline-none text-xs sm:text-sm font-medium text-[#1E1B18] appearance-none cursor-pointer pr-8 transition" id="industry-select" name="industry">
+<option selected="" value="tech">Technology</option>
+<option value="fashion">Fashion &amp; Apparel</option>
+<option value="automotive">Automotive</option>
+<option value="entertainment">Entertainment &amp; Gaming</option>
+<option value="cpg">Consumer Goods</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-[#716B66]">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+</div>
+<!-- Expected Timeline Dropdown -->
+<div>
+<label class="block text-xs font-semibold text-[#1E1B18] uppercase tracking-wide mb-2" for="timeline-select">
+                Expected Timeline
+              </label>
+<div class="relative">
+<select class="w-full px-3.5 py-2.5 rounded-xl border border-[#EDE8E3] bg-[#FAF8F5] focus:bg-white focus:border-[#E46638] focus:ring-2 focus:ring-[#F8D8CB] outline-none text-xs sm:text-sm font-medium text-[#1E1B18] appearance-none cursor-pointer pr-8 transition" id="timeline-select" name="timeline">
+<option selected="" value="2weeks">2 weeks</option>
+<option value="1week">1 week (Rush)</option>
+<option value="3weeks">3 - 4 weeks</option>
+<option value="flexible">Flexible schedule</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-[#716B66]">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Form Actions -->
+<div class="pt-6 border-t border-[#EDE8E3] flex items-center justify-between gap-3">
+<button class="px-5 py-2.5 rounded-xl border border-[#D5CFC9] text-xs sm:text-sm font-medium text-[#716B66] hover:bg-[#FAF8F5] hover:text-[#1E1B18] transition active:scale-95 shadow-sm" data-purpose="save-draft-button" type="button">
+              Save as Draft
+            </button>
+<button class="px-6 py-2.5 rounded-xl bg-[#E46638] hover:bg-[#D95325] text-white text-xs sm:text-sm font-semibold flex items-center space-x-2 shadow-sm transition active:scale-95" data-purpose="next-step-button" type="button">
+<span>Next</span>
+<span>→</span>
+</button>
+</div>
+</form>
+</section>
+<!-- END: FormColumn -->
+<!-- BEGIN: BriefPreviewColumn (Right) -->
+<aside class="lg:col-span-4" data-purpose="brief-preview-sidebar">
+<div class="sticky top-24 space-y-4">
+<!-- Label and Status Header -->
+<div class="flex items-center justify-between px-1">
+<h3 class="text-sm font-bold text-[#1E1B18] flex items-center space-x-2">
+<span>Brief Preview</span>
+</h3>
+<span class="text-[11px] font-semibold text-[#8C857E] uppercase tracking-wider bg-[#EDE8E3]/60 px-2 py-0.5 rounded">Live Card</span>
+</div>
+<!-- Preview Card Wrapper -->
+<div class="bg-white border border-[#EDE8E3] rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden" data-purpose="brief-preview-card">
+<!-- Decorative Accent Top Border -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E46638] via-[#E46638]/70 to-[#D95325]"></div>
+<!-- Campaign Title Header -->
+<div class="mt-1">
+<h4 class="text-base font-bold text-[#1E1B18] tracking-tight">Futuristic Product Launch</h4>
+<p class="text-[11px] text-[#8C857E] mt-0.5">By LumeTech Interactive</p>
+</div>
+<!-- Tags / Badges Section -->
+<div class="flex flex-wrap items-center gap-1.5 mt-3">
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#FCEFE9] text-[#D95325] border border-[#F8D8CB]/70">
+                Video
+              </span>
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-[#FAF8F5] text-[#554F49] border border-[#EDE8E3]">
+                Cinematic
+              </span>
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-[#FAF8F5] text-[#554F49] border border-[#EDE8E3]">
+                Midjourney
+              </span>
+</div>
+<!-- Brief Description Paragraph -->
+<p class="text-xs text-[#554F49] mt-3.5 leading-relaxed line-clamp-3">
+              A high-end cinematic product video for our new wireless earbuds. Modern, minimal aesthetic with crisp lighting and dynamic product choreography.
+            </p>
+<!-- Meta Attributes Grid -->
+<div class="mt-5 pt-4 border-t border-[#EDE8E3] space-y-2.5">
+<!-- Budget Row -->
+<div class="flex items-center justify-between text-xs">
+<span class="text-[#8C857E] flex items-center space-x-1.5">
+<svg class="w-3.5 h-3.5 text-[#8C857E]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Budget</span>
+</span>
+<span class="font-bold text-[#1E1B18]">$5K – $8K</span>
+</div>
+<!-- Timeline Row -->
+<div class="flex items-center justify-between text-xs">
+<span class="text-[#8C857E] flex items-center space-x-1.5">
+<svg class="w-3.5 h-3.5 text-[#8C857E]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Timeline</span>
+</span>
+<span class="font-medium text-[#1E1B18]">2 weeks</span>
+</div>
+<!-- Industry Row -->
+<div class="flex items-center justify-between text-xs">
+<span class="text-[#8C857E] flex items-center space-x-1.5">
+<svg class="w-3.5 h-3.5 text-[#8C857E]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Industry</span>
+</span>
+<span class="font-medium text-[#1E1B18]">Technology</span>
+</div>
+</div>
+<!-- Preview Card Footer -->
+<div class="mt-4 pt-3 border-t border-[#EDE8E3]/60 flex items-center justify-between text-[11px] text-[#8C857E]">
+<span class="flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>Open for proposals</span>
+</span>
+<span class="text-[#D95325] font-medium cursor-pointer hover:underline">View sample listing →</span>
+</div>
+</div>
+<!-- Quick Tip Hint Box -->
+<div class="bg-[#FDF8F5] border border-[#F8D8CB] rounded-xl p-3.5 text-xs text-[#716B66] flex items-start space-x-2.5">
+<span class="text-[#E46638] text-base leading-none">💡</span>
+<p class="leading-relaxed">
+              Briefs with specific visual style references and clear turnaround expectations receive up to <span class="font-semibold text-[#1E1B18]">3x faster creator applications</span>.
+            </p>
+</div>
+</div>
+</aside>
+<!-- END: BriefPreviewColumn -->
+</div>
+</main>
+<!-- END: MainContentArea -->
+<!-- BEGIN: PageFooter -->
+<footer class="bg-white border-t border-[#EDE8E3] py-6 mt-12 text-center text-xs text-[#8C857E]">
+<div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+<p>© 2026 AI Creators Platform. All rights reserved.</p>
+<div class="flex space-x-6 text-[#716B66]">
+<a class="hover:underline" href="#">Brief Guidelines</a>
+<a class="hover:underline" href="#">Escrow Protection</a>
+<a class="hover:underline" href="#">Support</a>
+</div>
+</div>
+</footer>
+<!-- END: PageFooter -->
+</body></html>

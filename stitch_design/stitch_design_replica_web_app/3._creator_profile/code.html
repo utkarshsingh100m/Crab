@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Maya Chen - Creator Profile</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#E0592A',
+              primaryHover: '#C84C21',
+              cream: '#FBF8F3',
+              surface: '#FFFFFF',
+              card: '#F6F2EC',
+              muted: '#716B64',
+              dark: '#1C1917',
+              border: '#E8E2D8',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['Georgia', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles -->
+<style data-purpose="typography">
+    body {
+      background-color: #FBF8F3;
+      color: #1C1917;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+  </style>
+<style data-purpose="media-cards">
+    .media-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .media-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.12);
+    }
+  </style>
+</head>
+<body class="bg-brand-cream min-h-screen text-brand-dark antialiased">
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-border/60">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Logo & Primary Nav -->
+<div class="flex items-center space-x-10">
+<a aria-label="Home" class="flex items-center space-x-2" href="#">
+<svg class="w-8 h-8 text-brand-primary" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"></path>
+</svg>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-stone-700">
+<a class="text-brand-dark font-semibold transition hover:text-brand-primary" href="#">Creators</a>
+<a class="hover:text-brand-primary transition" href="#">Projects</a>
+<a class="hover:text-brand-primary transition" href="#">For Brands</a>
+<a class="hover:text-brand-primary transition" href="#">How It Works</a>
+<a class="hover:text-brand-primary transition" href="#">Pricing</a>
+</nav>
+</div>
+<!-- Action & Profile Buttons -->
+<div class="flex items-center space-x-5">
+<a class="text-sm font-medium text-stone-700 hover:text-brand-primary transition" href="#">Log In</a>
+<button class="bg-brand-primary hover:bg-brand-primaryHover text-white px-5 py-2.5 rounded-full text-sm font-medium shadow-sm transition">
+          Contact
+        </button>
+<!-- User Avatar Thumbnail -->
+<div class="w-9 h-9 rounded-full bg-stone-300 ring-2 ring-brand-border overflow-hidden cursor-pointer">
+<img alt="Current User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsSCoNPiRlRoez7_TomIX2dn99G46Plx0WbCsOGQCf5JCDNBewRtWkjqgI3wg-eUvqlTPWU7LC8WdOS6-2zyomzQkAWnbd9q_vUZETES1I7TOgTjN3hgpoN0UZB2jyFDC7SzsI2IrqzsQDe_Jjsu0qie8FcbpmU6FGNSJ8bO8ivojL3EDWm8lqW9fwcmfanJCRh3ECNkqh3T6J4PAqSg7T_HxrRwb8I1UQqPxd6J-ccMp2F91EbWn-nw"/>
+</div>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20">
+<!-- BEGIN: CreatorProfileHeader -->
+<section class="bg-brand-surface rounded-3xl border border-brand-border shadow-sm overflow-hidden mb-8" data-purpose="creator-profile-card">
+<!-- Ambient Banner Background -->
+<div class="h-44 sm:h-52 w-full relative overflow-hidden bg-gradient-to-r from-amber-100 via-orange-100 to-rose-100">
+<img alt="Creative artwork banner" class="w-full h-full object-cover opacity-85 mix-blend-multiply" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZuk3NMCEKllhrXxifQV6xoIDWnhZRR5khnz0f-XWKksN55JFqIhoEwz_CfGT2Etyi3P64l-Io_SSA7kYPVHkgXzduS7EFH_1wuxS7O4wUPfYaaPxAg8MDI6Wx3EiDrVSKCP3YpB8FuTDD0SNDWvufFtHONJpwO-y-uJm_uh5sRVLGpI8GlcwVg3UjHJLHlKeYX_vF-5BSHkXGlfYCRCuyQJSOTwDPl6I39-rDR7YcRT3GJHjwKHSEVg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+</div>
+<!-- Creator Details Section -->
+<div class="px-6 sm:px-10 pb-8 pt-0 relative">
+<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between -mt-16 sm:-mt-20 gap-6">
+<!-- Left Info: Avatar + Identity -->
+<div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+<!-- Profile Avatar with Ring -->
+<div class="relative shrink-0">
+<div class="w-32 h-32 sm:w-36 sm:h-36 rounded-full border-4 border-white shadow-lg overflow-hidden bg-stone-200">
+<img alt="Maya Chen profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFBJy6DQgbDhkTNZsq2JakLxmW57pCjkAua94tkA1MLBDEmL-vE9mUs_EBSX2dnpxASIRlRvP0XiUy6GOLqjCs559wvzJJWRw9hgZyMDh2T0eHDmpqm2KKsCCw-tlstYxl7xeMM-oI_hiQOHACoGAFjZlhbun0Y2vDofSyX60RNGA-5dfOnJGGGvyhGfh_yJ9olPBtbPKfxdF1DqE0GwGvKgeVTxkS4ibuiI6MVFuJLtul1ssIO4XMlg"/>
+</div>
+</div>
+<!-- Identity and Bio -->
+<div class="pt-2 sm:pt-14 max-w-xl">
+<div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+<h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-brand-dark">Maya Chen</h1>
+<!-- Verified Checkmark Badge -->
+<span class="inline-flex items-center text-blue-500" title="Verified Creator">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
+</svg>
+</span>
+</div>
+<!-- Specialty Subheading -->
+<p class="text-stone-600 font-medium text-sm sm:text-base mt-1">Generative Artist &amp; Visual Storyteller</p>
+<!-- Meta: Location & Project Availability -->
+<div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 mt-2.5 text-xs sm:text-sm text-stone-500">
+<div class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-stone-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm0 10s7-7.333 7-12a7 7 0 10-14 0c0 4.667 7 12 7 12z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Los Angeles, USA</span>
+</div>
+<div class="flex items-center gap-1.5 text-emerald-600 font-medium">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>Available for projects</span>
+</div>
+</div>
+<!-- Biography Description -->
+<p class="mt-4 text-sm text-stone-600 leading-relaxed">
+                I create emotionally rich visuals that blend AI with human imagination. Specializing in cinematic art, brand campaigns, and experimental visuals.
+              </p>
+</div>
+</div>
+<!-- Right Column: Metrics & Primary Actions -->
+<div class="flex flex-col items-center lg:items-end justify-between pt-2 sm:pt-14 gap-6 shrink-0">
+<!-- Key Stats Counter -->
+<div class="flex items-center gap-8 text-center sm:text-right" data-purpose="creator-stats">
+<!-- Rating -->
+<div class="text-left">
+<div class="flex items-center gap-1 text-stone-900 font-bold text-lg sm:text-xl">
+<span class="text-amber-500">★</span> 4.9
+                </div>
+<div class="text-xs text-stone-500 font-normal">(128 reviews)</div>
+</div>
+<div class="h-8 w-px bg-stone-200"></div>
+<!-- Total Projects -->
+<div class="text-left">
+<div class="text-stone-900 font-bold text-lg sm:text-xl">50+</div>
+<div class="text-xs text-stone-500 font-normal">Projects</div>
+</div>
+<div class="h-8 w-px bg-stone-200"></div>
+<!-- Industry Experience -->
+<div class="text-left">
+<div class="text-stone-900 font-bold text-lg sm:text-xl">3+</div>
+<div class="text-xs text-stone-500 font-normal">Years Experience</div>
+</div>
+</div>
+<!-- Profile Action CTA Group -->
+<div class="flex items-center gap-3 w-full sm:w-auto" data-purpose="profile-action-buttons">
+<!-- Contact Button -->
+<button class="flex-1 sm:flex-initial bg-brand-primary hover:bg-brand-primaryHover text-white px-6 py-2.5 rounded-full text-sm font-medium shadow-sm transition">
+                Contact Creator
+              </button>
+<!-- Save to Shortlist -->
+<button class="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full border border-stone-300 hover:border-stone-400 bg-white text-stone-700 text-sm font-medium transition shadow-sm">
+<svg class="w-4 h-4 text-stone-500" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Save to Shortlist</span>
+</button>
+<!-- Share Profile Button -->
+<button aria-label="Share Profile" class="w-10 h-10 flex items-center justify-center rounded-full border border-stone-300 hover:border-stone-400 bg-white text-stone-600 transition shadow-sm">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CreatorProfileHeader -->
+<!-- BEGIN: ProfileNavigationTabs -->
+<div class="border-b border-brand-border mb-6">
+<nav class="flex space-x-8 text-sm font-medium">
+<button class="border-b-2 border-brand-primary text-brand-dark pb-4 font-semibold">Portfolio</button>
+<button class="text-stone-500 hover:text-stone-800 pb-4 transition">About</button>
+<button class="text-stone-500 hover:text-stone-800 pb-4 transition">Workflow</button>
+<button class="text-stone-500 hover:text-stone-800 pb-4 transition">Services</button>
+<button class="text-stone-500 hover:text-stone-800 pb-4 transition">Reviews</button>
+</nav>
+</div>
+<!-- END: ProfileNavigationTabs -->
+<!-- BEGIN: PortfolioFilterPills -->
+<div class="flex flex-wrap items-center gap-2 mb-8" data-purpose="portfolio-filters">
+<button class="px-5 py-2 rounded-full text-xs font-semibold bg-brand-dark text-white shadow-sm transition">
+        All
+      </button>
+<button class="px-5 py-2 rounded-full text-xs font-medium bg-stone-100 hover:bg-stone-200 text-stone-700 transition">
+        AI Films
+      </button>
+<button class="px-5 py-2 rounded-full text-xs font-medium bg-stone-100 hover:bg-stone-200 text-stone-700 transition">
+        Generative Art
+      </button>
+<button class="px-5 py-2 rounded-full text-xs font-medium bg-stone-100 hover:bg-stone-200 text-stone-700 transition">
+        Brand Campaigns
+      </button>
+<button class="px-5 py-2 rounded-full text-xs font-medium bg-stone-100 hover:bg-stone-200 text-stone-700 transition">
+        Personal
+      </button>
+</div>
+<!-- END: PortfolioFilterPills -->
+<!-- BEGIN: PortfolioMediaGrid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-purpose="media-grid">
+<!-- Media Card 1: Featured Cinematic Character (Large portrait) -->
+<article class="media-card group relative bg-stone-900 aspect-[4/5] sm:aspect-auto sm:row-span-2 overflow-hidden shadow-sm">
+<img alt="Ethereal Portrait Visual" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmEqot3RsIW8EucwprOvfL2qEUoleECu7INh1jUmh5lrjNp-g4ajYHKGB5hunYgEcM2On5UrCbrsazaHUt3jjJTm1BxY-qGDpIdnW11q3MUigWZQb-oSgzyzglly49Y8G7YwroMZ9IOwLdTzf3PaXD3Uyuji4yDKe3enenZySWkn0-7EMNdfIJMkKvwjbUg6jcSrNW3FOyY_R3_qPWV21FR82mmGAvF-bIzLcNmuL0upFpOCrBdFaPoQ"/>
+<!-- Overlay Badges -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition"></div>
+<div class="absolute top-4 left-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-black/50 text-white backdrop-blur-md">
+<svg class="w-3.5 h-3.5 text-brand-primary" fill="currentColor" viewbox="0 0 20 20">
+<path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
+</svg>
+            Film Preview
+          </span>
+</div>
+<!-- Card Details -->
+<div class="absolute bottom-4 left-4 right-4 text-white">
+<h3 class="text-base font-semibold leading-snug group-hover:text-brand-primary transition">Celestial Rebirth</h3>
+<p class="text-xs text-stone-300 mt-1">Midjourney v6 • Runway Gen-2</p>
+</div>
+</article>
+<!-- Media Card 2: Surreal Desert Landscape -->
+<article class="media-card group relative bg-stone-900 aspect-square overflow-hidden shadow-sm">
+<img alt="Surreal architecture landscape" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWS_YqXD26YT0UDFoDVqEjbe_Dp8gtm2OakVOJ5QKJx3s8IlmLj_SDNcFWrk-Sz32GvUr-WFXKw-40ZdO-SS0Rlf9cNarwHflDyN4ELtTiMEgPG2B87WMyQ33mLnn2SVDulSAIBoJjcKd4MgbgVc_V17Y87rxzXpGGhtvS6kOp1dYUD8wiFc6HUvhrsA_c7FW0X1HP3bNCEdj9zohEfiaDj0bymQXAWouD9U7AiuiKRJOJwny-VynAVQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80"></div>
+<!-- Play Icon Overlay -->
+<div class="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white">
+<svg class="w-4 h-4 fill-current ml-0.5" viewbox="0 0 20 20">
+<path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
+</svg>
+</div>
+<div class="absolute bottom-4 left-4 right-4 text-white">
+<h3 class="text-sm font-semibold leading-snug">Dune Citadel</h3>
+<p class="text-xs text-stone-300 mt-0.5">Brand Concept Art</p>
+</div>
+</article>
+<!-- Media Card 3: Cyberpunk / Neon Portrait -->
+<article class="media-card group relative bg-stone-900 aspect-square overflow-hidden shadow-sm">
+<img alt="Neon glowing generative character" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU8fhPzxUszZVX0xZeloP_7NAJ8RdqnFAanw91xrhzBwbZNFTfP-jfijvxF8Fl2BAzecOM02HRO2Rl-K40_woP2Ws13pHLFq8EjofGawv6iKvt0myKy30F-8cwfZU1larrRlSDMgZz2XJK1Vg5yfpx_V7zINtL4bTPykQ6eEJnvJaZV8CyyXwTBpEfxgEk7hjHsbPkmSMvR-NmdvD4DBp5sZ11dcH4xPpXY7yMrOeQYUrvYhWDoSKLxQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80"></div>
+<div class="absolute bottom-4 left-4 right-4 text-white">
+<h3 class="text-sm font-semibold leading-snug">Synthetic Souls</h3>
+<p class="text-xs text-stone-300 mt-0.5">Generative Series</p>
+</div>
+</article>
+<!-- Media Card 4: Atmospheric Silhouette (Video) -->
+<article class="media-card group relative bg-stone-900 aspect-video overflow-hidden shadow-sm">
+<img alt="Atmospheric silhouette in mist" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2x0vq9tjRotFQW4T7GbqtcXhNX6wp-DrXt4jo4iZz1YbG9cpTvs5uf1EXeZjD_cJMpksZ14CwKLTc3BXPXXKq8gr9GJXOHWz_0cZmGiujgP2twRQ7_8aQNkSZb_Ogi00nrBG89DjZ6KW5kMxu6SgjYfPDtucCgDyUSHOQ7dTCdZHFT90Z7AMc5Rzy5sGH70HRx4MGtmED5oLuXFROWwrTU4rnvQGwO64OnnryKL69OYcwTKF1gLAoPA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80"></div>
+<!-- Play Badge -->
+<div class="absolute top-4 left-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-black/60 text-white backdrop-blur-md">
+<svg class="w-3 h-3 text-brand-primary" fill="currentColor" viewbox="0 0 20 20">
+<path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
+</svg>
+            0:45
+          </span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 text-white">
+<h3 class="text-sm font-semibold leading-snug">Echoes of Solitude</h3>
+<p class="text-xs text-stone-300 mt-0.5">Short Film</p>
+</div>
+</article>
+<!-- Media Card 5: Macro Cinematic Expression -->
+<article class="media-card group relative bg-stone-900 aspect-video overflow-hidden shadow-sm">
+<img alt="Dramatic close-up aesthetic" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcCmUptkCnEyIM8K-JryurCdAyW0vQKRCF9WPjtdVq28Z9roil3DGq4oZFjopQOAsYrqoRWwy10blVvf8U-3c2fxn33TKAkZfhjNFzXyzHOnvKc-9f_FaLwa7n5AjPjPiCA9fsuvxv3vaqDvN9wLesoVZo8pwK9is8euoz0xpa-OfaLf63RKQCTIsYhMhkuClvOjdP7babYCqPqbk_YyMkmrYfnB1LPWlU8UtbxAyPQ4SLwGpPIw6Hnw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80"></div>
+<div class="absolute bottom-4 left-4 right-4 text-white">
+<h3 class="text-sm font-semibold leading-snug">Emotional Resonance</h3>
+<p class="text-xs text-stone-300 mt-0.5">ComfyUI Workflow</p>
+</div>
+</article>
+</div>
+<!-- END: PortfolioMediaGrid -->
+</main>
+<!-- END: MainContent -->
+</body></html>

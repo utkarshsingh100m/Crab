@@ -1,0 +1,228 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-surface: #F8FAFC;
+    --color-navy: #172554;
+    --color-electric: #2563EB;
+    --color-violet: #7C3AED;
+    --color-teal: #0F766E;
+    --color-text: #334155;
+  }
+
+  * {
+    @apply border-slate-200;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-slate-700 font-sans antialiased;
+    min-height: 100vh;
+  }
+
+  /* Focus ring for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-electric-600 ring-offset-2;
+  }
+
+  h1 { @apply text-3xl font-bold tracking-tight text-slate-900; }
+  h2 { @apply text-2xl font-semibold tracking-tight text-slate-800; }
+  h3 { @apply text-xl font-semibold text-slate-800; }
+  h4 { @apply text-lg font-medium text-slate-700; }
+}
+
+@layer components {
+  /* ── Stitch Custom Effects ── */
+  .font-serif-display {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+  .hero-glow {
+    background: radial-gradient(circle at 65% 45%, #FDE4D8 0%, #FAF7F2 70%);
+  }
+  .footer-glow {
+    background: radial-gradient(circle at 50% 120%, #F8DACD 0%, #FAF7F2 80%);
+  }
+
+  /* ── Buttons ── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5
+           text-sm font-medium transition-all duration-200 disabled:opacity-50
+           disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+  .btn-primary {
+    @apply btn bg-brand-accent text-white hover:bg-brand-accent-hover shadow-sm
+           hover:shadow-md focus-visible:ring-brand-accent active:scale-95;
+  }
+  .btn-secondary {
+    @apply btn bg-white text-brand-dark border border-brand-border hover:bg-brand-sand/50
+           hover:border-brand-border shadow-sm focus-visible:ring-brand-accent;
+  }
+  .btn-outline {
+    @apply btn bg-transparent text-brand-dark border border-brand-border hover:bg-white
+           hover:border-brand-accent shadow-sm;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-slate-600 hover:bg-slate-100 focus-visible:ring-slate-400;
+  }
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-600;
+  }
+  .btn-violet {
+    @apply btn bg-violet-600 text-white hover:bg-violet-700 shadow-sm focus-visible:ring-violet-600;
+  }
+  .btn-teal {
+    @apply btn bg-teal-700 text-white hover:bg-teal-700/90 shadow-sm focus-visible:ring-teal-700;
+  }
+  .btn-navy {
+    @apply btn bg-navy text-white hover:bg-navy-800 shadow-sm focus-visible:ring-navy;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+  .btn-lg {
+    @apply px-6 py-3.5 text-base;
+  }
+
+  /* ── Cards ── */
+  .card {
+    @apply bg-white rounded-2xl border border-slate-200 shadow-sm;
+  }
+  .card-hover {
+    @apply card transition-all duration-200 hover:shadow-md hover:border-slate-300
+           hover:-translate-y-0.5 cursor-pointer;
+  }
+  .card-body {
+    @apply p-5;
+  }
+
+  /* ── Badges ── */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-electric {
+    @apply badge bg-electric-50 text-electric-700 border border-electric-100;
+  }
+  .badge-violet {
+    @apply badge bg-violet-50 text-violet-700 border border-violet-100;
+  }
+  .badge-teal {
+    @apply badge bg-teal-50 text-teal-700 border border-teal-100;
+  }
+  .badge-navy {
+    @apply badge bg-navy-50 text-navy border border-navy-100;
+  }
+  .badge-amber {
+    @apply badge bg-amber-50 text-amber-700 border border-amber-100;
+  }
+  .badge-red {
+    @apply badge bg-red-50 text-red-700 border border-red-100;
+  }
+  .badge-slate {
+    @apply badge bg-slate-100 text-slate-600 border border-slate-200;
+  }
+  .badge-green {
+    @apply badge bg-green-50 text-green-700 border border-green-100;
+  }
+
+  /* ── Inputs ── */
+  .input {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5
+           text-sm text-slate-700 placeholder-slate-400
+           focus:outline-none focus:ring-2 focus:ring-electric-500 focus:border-transparent
+           transition-all duration-150;
+  }
+  .input-error {
+    @apply border-red-300 focus:ring-red-400;
+  }
+  .label {
+    @apply block text-sm font-medium text-slate-700 mb-1.5;
+  }
+  .form-group {
+    @apply space-y-1.5;
+  }
+
+  /* ── Sections ── */
+  .section-header {
+    @apply flex items-center justify-between mb-6;
+  }
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+  }
+
+  /* ── Score Ring ── */
+  .score-ring {
+    @apply relative inline-flex items-center justify-center rounded-full;
+  }
+
+  /* ── Navigation ── */
+  .nav-item {
+    @apply flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium
+           text-slate-600 hover:bg-slate-100 hover:text-slate-900
+           transition-colors duration-150;
+  }
+  .nav-item-active {
+    @apply bg-electric-50 text-electric-700;
+  }
+
+  /* ── Status chips ── */
+  .status-available { @apply badge badge-green; }
+  .status-limited { @apply badge badge-amber; }
+  .status-booked { @apply badge badge-red; }
+  .status-on_leave { @apply badge badge-slate; }
+}
+
+@layer utilities {
+  /* Gradient text */
+  .text-gradient-electric {
+    @apply bg-gradient-to-r from-electric-600 to-violet-600 bg-clip-text text-transparent;
+  }
+  .text-gradient-navy {
+    @apply bg-gradient-to-r from-navy to-electric-600 bg-clip-text text-transparent;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-white/80 backdrop-blur-sm border border-white/50;
+  }
+
+  /* Score bar */
+  .score-bar {
+    @apply h-2 rounded-full overflow-hidden bg-slate-100;
+  }
+  .score-bar-fill {
+    @apply h-full rounded-full transition-all duration-700 ease-out;
+  }
+
+  /* Skeleton loading */
+  .skeleton {
+    @apply animate-pulse bg-slate-200 rounded;
+  }
+
+  /* Scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 3px;
+  }
+}
